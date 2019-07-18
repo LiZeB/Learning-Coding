@@ -81,7 +81,7 @@ void chain<T>::output(ostream &out) const {
 	/*****************************
 	链表的输出
 	******************************/
-	cout << listSize << endl;
+	cout << "The length of the chain is "<<listSize<< " " << endl;
 	if (listSize == 0) {
 		out << "The chain is NULL" << endl;
 	}
@@ -95,9 +95,84 @@ void chain<T>::output(ostream &out) const {
 
 template<class T>
 chain<T>::~chain() {
+	/************************************
+	chain这个链表类的析构函数
+	*************************************/
 	while (firstNode != NULL) {
 		chainNode<T> *indexNode = firstNode->next;
 		delete firstNode;
 		firstNode = indexNode;
 	}
+}
+
+template<class T>
+T& chain<T>::get(int theIndex) const {
+	/*************************************
+	根据某一个索引获取当前链表中的元素；
+	theIndex是从0开始
+	**************************************/
+	if (theIndex < 0 || theIndex > listSize) {
+		cout << "theIndex" <<theIndex  <<"must be >0" << endl;
+		exit(0);
+	}
+	chainNode<T> *indexNode = firstNode;
+	int i = 0;
+	while (i < theIndex) {
+		indexNode = indexNode->next;
+		i++;
+	}
+	return indexNode->element;
+}
+
+template<class T>
+int chain<T>::indexOf(const T &theElement) const {
+	/****************************************
+	返回链表中与theElement有相同元素值得第一个索引；
+	索引从0开始
+	*****************************************/
+	chainNode<T> *indexNode = firstNode;
+	int i = 0;
+	while ((indexNode != NULL) && (indexNode->element != theElement)) {
+		indexNode = indexNode->next;
+		i++;
+	}
+	if (indexNode == NULL) {
+		return -1;
+	}
+	else
+		return i;
+}
+
+template<class T>
+void chain<T>::erase(int theIndex) {
+	if (theIndex < 0 || theIndex >= listSize) {
+		cout << "theIndex is not correct!" << endl;
+		exit(0);
+	}
+	chainNode<T> *tempNode=firstNode;
+	if (theIndex == 0) {
+		delete firstNode;
+		firstNode = tempNode;
+	}
+	else if (theIndex == (listSize - 1)) {
+		chainNode<T> *preNode=tempNode;
+		while (tempNode->next != NULL) {
+			preNode = tempNode;
+			tempNode = tempNode->next;
+		}
+		preNode->next = NULL;
+		delete tempNode;
+	}
+	else {
+		chainNode<T> *preNode=tempNode;
+		int i = 0;
+		while (i<theIndex) {
+			preNode = tempNode;
+			tempNode = tempNode->next;
+			i++;
+		}
+		preNode->next = tempNode->next;
+		delete tempNode;
+	}
+	listSize--;
 }

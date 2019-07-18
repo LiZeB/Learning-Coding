@@ -26,14 +26,13 @@ public:
 
 	bool empty() const{ return listSize == 0;}
 	int size() const { return listSize;}
-	/*T& get(int theIndex) const;
+	T& get(int theIndex) const;
 	int indexOf(const T &theElement) const;
-	void erase(int theIndex);*/
+	void erase(int theIndex);
 	void insert(int theIndex, const T &theElement);
 	void output(ostream &out) const;
 
 protected:
-	//void checkIndex(int theIndex) const;
 	chainNode<T> *firstNode;
 	int listSize;
 };
