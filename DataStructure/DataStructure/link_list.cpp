@@ -79,7 +79,7 @@ void chain<T>::insert(int theIndex, const T &theElement) {
 template<class T>
 void chain<T>::output(ostream &out) const {
 	/*****************************
-	链表的输出
+	链表的输出显示，out可以是文件流也可以是标准输入输出流
 	******************************/
 	cout << "The length of the chain is "<<listSize<< " " << endl;
 	if (listSize == 0) {
@@ -145,6 +145,10 @@ int chain<T>::indexOf(const T &theElement) const {
 
 template<class T>
 void chain<T>::erase(int theIndex) {
+	/*********************************
+	按照索引theIndex(下标从0开始)，
+	删除链表中的某一个元素
+	**********************************/
 	if (theIndex < 0 || theIndex >= listSize) {
 		cout << "theIndex is not correct!" << endl;
 		exit(0);
@@ -175,4 +179,66 @@ void chain<T>::erase(int theIndex) {
 		delete tempNode;
 	}
 	listSize--;
+}
+
+template<class T>
+void chain<T>::binSort(int range) {
+	/************************************************
+	实现了一个箱子排序算法，这个算法的功能是针对一个
+	链表进行排序。排序采用一种以空间换时间的思想，假设
+	链表中元素值在[0-(n-1)]范围内，生成n个链表。每个链
+	表保存原链表中所有相同元素的值。这n个链表以[0,(n-1)]
+	的下标进行索引。这样把原链表中每一个元素放入箱子后，
+	最后只需按顺序把原箱子所有元素放入新的链表，这个新
+	链表就是一个排好序的链表。
+	这个排序算法有限制，条件很强：由于使用原链表中的元
+	素值做索引，因此只能针对T为int类型的情况，排序元素
+	也只能为非负整数
+	range:原链表中最大元素值+1
+	**************************************************/
+	chainNode<T> **top, **bottom;
+	top = new chainNode<T> *[range];
+	bottom = new chainNode<T> *[range];
+	for (int i = 0; i < range; i++) {
+		top[i] = NULL;
+		bottom[i] = NULL;
+	}
+
+	//把原链表中的每一个元素添加入箱子当中
+	while (firstNode != NULL) {
+		int tempElement = firstNode->element;    //模板类型T只能为int
+		if (top[tempElement] == NULL) {
+			top[tempElement] = firstNode;
+			bottom[tempElement] = firstNode;
+		}
+		else {
+			top[tempElement]->next = firstNode;
+			top[tempElement] = firstNode;
+		}
+		firstNode = firstNode->next;
+	}
+
+	//从箱子当中取元素放入一个链表，使之成为一个新的排序链表
+	int start = 0;
+	for (int bin = 0; bin < range; bin++) {
+		if (top[bin] != NULL)
+			break;
+		start++;
+	}
+	int skip_flag = 0;
+	for (int bin = start; bin < range; bin++) {
+		if (top[bin] == NULL) {
+			skip_flag++;
+			continue;
+		}
+		if ((bin == start) && (top[bin] != NULL)) {
+			firstNode = bottom[bin];
+		}
+		else {
+			top[bin-1-skip_flag]->next = bottom[bin];
+			skip_flag = 0;
+		}
+
+	}
+	top[range - 1]->next = NULL;    
 }

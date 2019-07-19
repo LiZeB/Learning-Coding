@@ -8,7 +8,7 @@ int main() {
 
 	//测试链表的插入
 	for (int i = 0; i < 10; i++) {
-		linkList.insert(i, i);
+		linkList.insert(i, i+2);
 	}
 	linkList.insert(0, 5);
 	linkList.insert(1, 2);
@@ -32,6 +32,15 @@ int main() {
 	//测试根据索引删除某一结点
 	linkList2.erase(13);
 	linkList2.output(cout);
+
+	//测试用箱子排序算法对链表进行排序
+	linkList2.insert(2, 6);
+	linkList2.insert(2, 10);
+	linkList2.insert(2, 19);
+	linkList2.output(cout);
+	linkList2.binSort(20);
+	linkList2.output(cout);
+
 	getchar();
 	return 0;
 }

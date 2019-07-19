@@ -31,6 +31,7 @@ public:
 	void erase(int theIndex);
 	void insert(int theIndex, const T &theElement);
 	void output(ostream &out) const;
+	void binSort(int range);
 
 protected:
 	chainNode<T> *firstNode;
