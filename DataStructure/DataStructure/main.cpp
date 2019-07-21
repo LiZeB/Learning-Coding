@@ -1,5 +1,5 @@
 #include<iostream>
-#include "link_list.cpp"
+#include "forward_list.cpp"
 
 using namespace std;
 
@@ -7,13 +7,9 @@ int main() {
 	chain<int> linkList;
 
 	//测试链表的插入
-	for (int i = 0; i < 10; i++) {
-		linkList.insert(i, i+2);
+	for (int i = 0; i < 14; i++) {
+		linkList.insert(i, 17-i);
 	}
-	linkList.insert(0, 5);
-	linkList.insert(1, 2);
-	linkList.insert(-1, 3);
-	linkList.insert(2, 4);
 	linkList.output(cout);
 
 	//测试链表的拷贝构造函数
@@ -26,19 +22,20 @@ int main() {
 	cout <<"按位置"<<a<<"进行索引:"<< temp << endl;
 
 	//测试根据元素值返回元素值得索引
-	int temp2 = linkList2.indexOf(1);
-	cout <<"取某一个元素值"<<temp2<<"得索引：" <<temp2 << endl;
+	int temp2 = linkList2.indexOf(13);
+	cout <<"取某一个元素值"<<13<<"的索引：" <<temp2 << endl;
 
 	//测试根据索引删除某一结点
 	linkList2.erase(13);
+	cout << "删除索引位置" << 13 << "的元素：" << endl;
 	linkList2.output(cout);
 
 	//测试用箱子排序算法对链表进行排序
-	linkList2.insert(2, 6);
-	linkList2.insert(2, 10);
-	linkList2.insert(2, 19);
+	linkList2.insert(5, 118);
 	linkList2.output(cout);
-	linkList2.binSort(20);
+	linkList2.insert(2, 18);
+	linkList2.output(cout);
+	linkList2.binSort(linkList2.getMax()+1);
 	linkList2.output(cout);
 
 	getchar();

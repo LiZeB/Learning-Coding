@@ -1,5 +1,5 @@
 #include <sstream>
-#include "data_structure.h"
+#include "forward_list.h"
 using namespace std;
 
 
@@ -191,7 +191,7 @@ void chain<T>::binSort(int range) {
 	的下标进行索引。这样把原链表中每一个元素放入箱子后，
 	最后只需按顺序把原箱子所有元素放入新的链表，这个新
 	链表就是一个排好序的链表。
-	这个排序算法有限制，条件很强：由于使用原链表中的元
+	这个排序算法有限制：由于使用原链表中的元
 	素值做索引，因此只能针对T为int类型的情况，排序元素
 	也只能为非负整数
 	range:原链表中最大元素值+1
@@ -206,8 +206,8 @@ void chain<T>::binSort(int range) {
 
 	//把原链表中的每一个元素添加入箱子当中
 	while (firstNode != NULL) {
-		int tempElement = firstNode->element;    //模板类型T只能为int
-		if (top[tempElement] == NULL) {
+		T tempElement = firstNode->element;    //模板类型T只能为int
+		if (bottom[tempElement] == NULL) {
 			top[tempElement] = firstNode;
 			bottom[tempElement] = firstNode;
 		}
@@ -218,20 +218,38 @@ void chain<T>::binSort(int range) {
 		firstNode = firstNode->next;
 	}
 
+
+	/*测试代码，测试放入箱子是否正确*/
+	/*cout << "----------------------" << endl;
+	for (int j = 0; j < range; j++) {
+		if (bottom[j] == NULL) {
+			continue;
+		}
+		chainNode<T> *index = bottom[j];
+		while (index != top[j]) {
+			cout << index->element;
+			index = index->next;
+		}
+		cout<<index->element<< endl;
+	}
+	cout << "----------------------" << endl;
+	************************************/
+
 	//从箱子当中取元素放入一个链表，使之成为一个新的排序链表
 	int start = 0;
 	for (int bin = 0; bin < range; bin++) {
-		if (top[bin] != NULL)
+		if (bottom[bin] != NULL)
 			break;
 		start++;
 	}
+	cout << start << endl;
 	int skip_flag = 0;
 	for (int bin = start; bin < range; bin++) {
-		if (top[bin] == NULL) {
+		if (bottom[bin] == NULL) {
 			skip_flag++;
 			continue;
 		}
-		if ((bin == start) && (top[bin] != NULL)) {
+		if (bin == start) {
 			firstNode = bottom[bin];
 		}
 		else {
@@ -241,4 +259,24 @@ void chain<T>::binSort(int range) {
 
 	}
 	top[range - 1]->next = NULL;    
+}
+
+template<class T>
+T chain<T>::getMax() const {       
+	/************************************
+	实现了一个遍历链表获取当前链表最大值的函数
+	注意这里返回值不能为引用
+	*************************************/
+	if (listSize == 0) {
+		cout << "链表为空" << endl;
+		exit(0);
+	}
+	chainNode<T> *indexNode = firstNode;
+	T maxValue = firstNode->element;
+	while (indexNode != NULL) {
+		if (maxValue < indexNode->element)
+			maxValue = indexNode->element;
+		indexNode = indexNode->next;
+	}
+	return maxValue;
 }

@@ -118,10 +118,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="data_structure.h" />
+    <ClInclude Include="forward_list.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="link_list.cpp" />
+    <ClCompile Include="forward_list.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

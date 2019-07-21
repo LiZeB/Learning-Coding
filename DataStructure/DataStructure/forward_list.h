@@ -32,6 +32,7 @@ public:
 	void insert(int theIndex, const T &theElement);
 	void output(ostream &out) const;
 	void binSort(int range);
+	T getMax() const;
 
 protected:
 	chainNode<T> *firstNode;
