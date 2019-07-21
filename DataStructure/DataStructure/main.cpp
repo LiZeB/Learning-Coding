@@ -1,5 +1,5 @@
-#include<iostream>
 #include "forward_list.cpp"
+#include "stack.h"
 
 using namespace std;
 
@@ -37,6 +37,19 @@ int main() {
 	linkList2.output(cout);
 	linkList2.binSort(linkList2.getMax()+1);
 	linkList2.output(cout);
+
+	/***********测试栈的代码***********/
+	linkedStack<int> stack1;
+
+	for (int j = 0; j < 10; j++) {
+		stack1.push(j);
+	}
+	stack1.push(100);
+	cout << "栈的长度："<<stack1.size()<<endl;
+	while (!stack1.empty()) {
+		cout << stack1.top() << " ";
+		stack1.pop();
+	}
 
 	getchar();
 	return 0;

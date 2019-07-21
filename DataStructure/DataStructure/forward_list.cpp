@@ -256,7 +256,6 @@ void chain<T>::binSort(int range) {
 			top[bin-1-skip_flag]->next = bottom[bin];
 			skip_flag = 0;
 		}
-
 	}
 	top[range - 1]->next = NULL;    
 }
