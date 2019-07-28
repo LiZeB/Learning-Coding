@@ -1,9 +1,11 @@
 #include "forward_list.cpp"
 #include "stack.h"
+#include "linkedBinaryTree.cpp"
 
 using namespace std;
 
 int main() {
+	/*********测试链表的代码**********/
 	chain<int> linkList;
 
 	//测试链表的插入
@@ -17,9 +19,9 @@ int main() {
 	linkList2.output(cout);
 
 	//测试链表的获取元素的函数
-	int a = 6;
-	int temp = linkList2.get(6);
-	cout <<"按位置"<<a<<"进行索引:"<< temp << endl;
+	int a1 = 6;
+	int temp = linkList2.get(a1);
+	cout <<"按位置"<<a1<<"进行索引:"<< temp << endl;
 
 	//测试根据元素值返回元素值得索引
 	int temp2 = linkList2.indexOf(13);
@@ -50,6 +52,26 @@ int main() {
 		cout << stack1.top() << " ";
 		stack1.pop();
 	}
+	cout << endl;
+	
+	/***************测试二叉树的代码*****************/
+	linkedBinaryTree<int> a, x, y, z;
+	y.makeTree(1, a, a);
+	z.makeTree(2, a, a);
+	x.makeTree(3, y, z);
+	y.makeTree(4, x, a);
+	cout << "Number of nodes = ";
+	cout << y.size() << endl;
+	cout << "height = ";
+	cout << y.height() << endl;
+	cout << "Preorder sequence is ";
+	y.preOrderOutput();
+	cout << "Inorder sequence is ";
+	y.inOrderOutput();
+	cout << "Postorder sequence is ";
+	y.postOrderOutput();
+
+	//y.removeLeftSubtree(); 还不能正确运行
 
 	getchar();
 	return 0;

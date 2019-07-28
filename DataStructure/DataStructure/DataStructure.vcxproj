@@ -119,10 +119,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="forward_list.h" />
+    <ClInclude Include="linkedBinaryTree.h" />
     <ClInclude Include="stack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="forward_list.cpp" />
+    <ClCompile Include="linkedBinaryTree.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
