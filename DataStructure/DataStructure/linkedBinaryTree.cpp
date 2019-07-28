@@ -1,3 +1,4 @@
+#include <queue>
 #include "linkedBinaryTree.h"
 
 template<class T>
@@ -58,9 +59,32 @@ void linkedBinaryTree<E>::postOrder(binaryTreeNode<E> *t)
 }
 
 template<class T>
+void linkedBinaryTree<T>::levelOrder(binaryTreeNode<T> *t)
+{
+	/***********层次遍历**********/
+	queue<binaryTreeNode<T> *> q1;
+	while (t != NULL) {
+		linkedBinaryTree<T>::visit(t);
+		if(t->leftChild != NULL)
+			q1.push(t->leftChild);
+		if(t->rightChild != NULL)
+			q1.push(t->rightChild);
+		if (!q1.empty()) {
+			t = q1.front();
+			q1.pop();
+		}
+		else {
+			return;
+		}
+	}
+
+}
+
+
+template<class T>
 int linkedBinaryTree<T>::height(binaryTreeNode<T> *t) const 
 {
-	/*****Return height of tree rooted at *t.******/
+	/*****求根节点为t的二叉树的高度******/
 	if (t == NULL)
 		return 0;                    // empty tree
 	int hl = height(t->leftChild);  // height of left
@@ -71,19 +95,19 @@ int linkedBinaryTree<T>::height(binaryTreeNode<T> *t) const
 		return ++hr;
 }
 
-template<class E>
-void linkedBinaryTree<E>::removeLeftSubtree()
-{
-	if (treeSize == 0)
-		exit(0);
-
-	linkedBinaryTree<E> leftSubtree;
-	leftSubtree.root = root->leftChild;
-	count = 0;
-	leftSubtree.treeSize = countNodes(leftSubtree.root);
-	root->leftChild = NULL;
-	treeSize -= leftSubtree.treeSize;
-
-}
+//template<class E>
+//void linkedBinaryTree<E>::removeLeftSubtree()
+//{
+//	if (treeSize == 0)
+//		exit(0);
+//
+//	linkedBinaryTree<E> leftSubtree;
+//	leftSubtree.root = root->leftChild;
+//	count = 0;
+//	leftSubtree.treeSize = countNodes(leftSubtree.root);
+//	root->leftChild = NULL;
+//	treeSize -= leftSubtree.treeSize;
+//
+//}
 
 

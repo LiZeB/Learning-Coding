@@ -1,5 +1,19 @@
 #include<iostream>
+#include<string>
 using namespace std;
+
+class queueEmpty
+{
+public:
+	queueEmpty(string theMessage =
+		"Invalid operation on empty queue")
+	{
+		message = theMessage;
+	}
+	void outputMessage() { cout << message << endl; }
+private:
+	string message;
+};
 
 template<class T>
 struct binaryTreeNode {
@@ -26,7 +40,7 @@ public:
 	virtual void preOrder(void (*) (T *)) = 0;
 	virtual void inOrder(void (*) (T *)) = 0;
 	virtual void postOrder(void (*) (T *)) = 0;
-	//virtual void levelOrder(void(*) (T *)) = 0;
+	virtual void levelOrder(void(*) (T *)) = 0;
 
 };
 
@@ -41,8 +55,8 @@ public:
 	int size() const { return treeSize; }
 	T* rootElement() const;
 	void makeTree(const T& element, linkedBinaryTree<T>&, linkedBinaryTree<T>&);
-	void removeLeftSubtree();
-	linkedBinaryTree<T>& removeRightSubtree();
+	//void removeLeftSubtree();
+	//void removeRightSubtree();
 	void preOrder(void(*theVisit)(binaryTreeNode<T>*))
 	{
 		visit = theVisit; preOrder(root);
@@ -56,7 +70,9 @@ public:
 		visit = theVisit; postOrder(root);
 	}
 
-	//void levelOrder(void(*)(binaryTreeNode<T> *));
+	void levelOrder(void(*theVisit)(binaryTreeNode<T> *)) {
+		visit = theVisit; levelOrder(root);
+	}
 	void preOrderOutput() { preOrder(output); cout << endl; }
 	void inOrderOutput() { inOrder(output); cout << endl; }
 	void postOrderOutput() { postOrder(output); cout << endl; }
@@ -78,6 +94,8 @@ protected:
 	static void preOrder(binaryTreeNode<T> *t);
 	static void inOrder(binaryTreeNode<T> *t);
 	static void postOrder(binaryTreeNode<T> *t);
+	static void levelOrder(binaryTreeNode<T> *t);
+
 	static void countNodes(binaryTreeNode<T> *t)
 	{
 		visit = addToCount;

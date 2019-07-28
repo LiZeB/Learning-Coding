@@ -70,6 +70,8 @@ int main() {
 	y.inOrderOutput();
 	cout << "Postorder sequence is ";
 	y.postOrderOutput();
+	cout << "Levelorder sequence is ";
+	y.levelOrderOutput();
 
 	//y.removeLeftSubtree(); 还不能正确运行
 
