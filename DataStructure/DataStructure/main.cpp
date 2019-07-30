@@ -73,7 +73,17 @@ int main() {
 	cout << "Levelorder sequence is ";
 	y.levelOrderOutput();
 
-	//y.removeLeftSubtree(); 还不能正确运行
+	/****************测试二叉搜索树*******************/
+	binarySearchTree<int, char> y1;
+	y1.insert(pair<int, char>(1, 'a'));
+	y1.insert(pair<int, char>(6, 'c'));
+	y1.insert(pair<int, char>(4, 'b'));
+	y1.insert(pair<int, char>(8, 'd'));
+	cout << "Tree size is " << y1.size() << endl;
+    
+	int a_1 = 4;
+	y1.erase(a_1);
+	cout << "Tree size is " << y1.size() << endl;
 
 	getchar();
 	return 0;

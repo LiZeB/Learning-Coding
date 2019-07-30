@@ -55,8 +55,6 @@ public:
 	int size() const { return treeSize; }
 	T* rootElement() const;
 	void makeTree(const T& element, linkedBinaryTree<T>&, linkedBinaryTree<T>&);
-	//void removeLeftSubtree();
-	//void removeRightSubtree();
 	void preOrder(void(*theVisit)(binaryTreeNode<T>*))
 	{
 		visit = theVisit; preOrder(root);
@@ -116,3 +114,19 @@ protected:
 
 template<class T>
 void(*linkedBinaryTree<T>::visit)(binaryTreeNode<int>*);  //仔细琢磨这一行的作用
+void(*linkedBinaryTree<pair<int, char> >::visit)(binaryTreeNode<pair<int, char> >*);
+
+template<class K, class E>
+class binarySearchTree : public linkedBinaryTree<pair<K, E>>
+{
+public:
+	bool empty() const { return treeSize == 0; }
+	int size() const { return treeSize; }
+	pair<K, E>* find(K& theKey) const;
+	void insert(const pair<K, E>& thePair);
+	void erase(K& theKey);
+
+	void ascend() { inOrderOutput(); }
+};
+
+

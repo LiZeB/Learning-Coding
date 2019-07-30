@@ -1,9 +1,4 @@
-#include<iostream>
-#include<vector>
-#include<cstring>
-#include<string>
-
-using namespace std;
+#include "characters.h"
 
 vector<string> splict_string(const char *input, const char *delim){
     /***************************************

@@ -1,8 +1,10 @@
 #include<iostream>
 #include "characters.h"
+#include "container.cpp"
 
 int main()
 {
+	/***********测试splict_string的代码************/
     char *input = "Hello World, my name is LiZeBin";     
     vector<string> output;
     output = splict_string(input, ",");
@@ -24,12 +26,17 @@ int main()
 		cout << output[i] << endl;
 	}
 
-	cout << sizeof(int) << endl;
-	cout << sizeof(int *) << endl;
-	cout << sizeof(double) << endl;
-	cout << sizeof(double *) << endl;
-	cout << sizeof(char) << endl;
-	cout << sizeof(char *) << endl;
+	/***********测试各个基本内置类型的字节数*********/
+	cout << "sizeof(int):" << sizeof(int) << endl;
+	cout << "sizeof(int *):" << sizeof(int *) << endl;
+	cout << "sizeof(double):" << sizeof(double) << endl;
+	cout << "sizeof(double *):" << sizeof(double *) << endl;
+	cout << "sizeof(char):"<<sizeof(char) << endl;
+	cout << "sizeof(char *):"<<sizeof(char *) << endl;
+
+	/*************测试队列*****************************/
+	queue<vector<int>> q1;
+	test_queue(q1, vector<int>(20));
 	
 	getchar();
 	return 0;
