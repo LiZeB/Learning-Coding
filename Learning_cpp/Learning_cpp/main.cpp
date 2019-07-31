@@ -38,6 +38,17 @@ int main()
 	queue<vector<int>> q1;
 	test_queue(q1, vector<int>(20));
 	
+	/*******************²âÊÔmap×Öµä********************/
+	map<int, char*> map1;
+	map1[3] = "c";
+	map1[2] = "b";
+	map1[1] = "a";
+
+	map1 = map_sort(map1);
+	for (auto iter = map1.begin(); iter != map1.end(); iter++) {
+		cout << iter->first << iter->second << endl;
+	}
+
 	getchar();
 	return 0;
 }
