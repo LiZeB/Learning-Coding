@@ -1,6 +1,7 @@
 #include<iostream>
 #include "characters.h"
 #include "container.cpp"
+#include "test_algorithm.cpp"
 
 int main()
 {
@@ -48,6 +49,9 @@ int main()
 	for (auto iter = map1.begin(); iter != map1.end(); iter++) {
 		cout << iter->first << iter->second << endl;
 	}
+	
+	/*************²âÊÔalgorithmËã·¨¿âÖÐµÄsort******************/
+	test_sort();
 
 	getchar();
 	return 0;
