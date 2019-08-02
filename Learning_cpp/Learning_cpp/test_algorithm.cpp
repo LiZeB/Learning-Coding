@@ -2,21 +2,21 @@
 
 void test_sort()
 {
-    std::array<int, 10> s = {5, 7, 4, 2, 8, 6, 1, 9, 0, 3}; 
+    array<int, 10> s = {5, 7, 4, 2, 8, 6, 1, 9, 0, 3}; 
  
     // 用默认的 operator< 排序
-    std::sort(s.begin(), s.end());
+    sort(s.begin(), s.end());
     for (auto a : s) {
-        std::cout << a << " ";
+        cout << a << " ";
     }   
-    std::cout << '\n';
+    cout << '\n';
  
     // 用标准库比较函数对象排序
-    std::sort(s.begin(), s.end(), std::greater<int>());
+    sort(s.begin(), s.end(), greater<int>());
     for (auto a : s) {
-        std::cout << a << " ";
+        cout << a << " ";
     }   
-    std::cout << '\n';
+    cout << '\n';
  
     // 用自定义函数对象排序
     struct {
@@ -25,18 +25,18 @@ void test_sort()
             return a < b;
         }   
     } customLess;
-    std::sort(s.begin(), s.end(), customLess);
+    sort(s.begin(), s.end(), customLess);
     for (auto a : s) {
-        std::cout << a << " ";
+        cout << a << " ";
     }   
-    std::cout << '\n';
+    cout << '\n';
  
     // 用 lambda 表达式排序
-    std::sort(s.begin(), s.end(), [](int a, int b) {
+    sort(s.begin(), s.end(), [](int a, int b) {
         return b < a;   
     });
     for (auto a : s) {
-        std::cout << a << " ";
+        cout << a << " ";
     } 
-    std::cout << '\n';
+    cout << '\n';
 }

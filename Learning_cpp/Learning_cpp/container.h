@@ -6,6 +6,9 @@
 
 using namespace std;
 
+//测试vector的各种初始化方式
+void test_vector();
+
 //测试queue的empty()
 template<class T>
 void test_queue(queue<T> &, T);

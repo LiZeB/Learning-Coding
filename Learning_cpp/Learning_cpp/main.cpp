@@ -35,6 +35,10 @@ int main()
 	cout << "sizeof(char):"<<sizeof(char) << endl;
 	cout << "sizeof(char *):"<<sizeof(char *) << endl;
 
+	/********************²âÊÔvector*********************/
+	cout << "²âÊÔvector" << endl;
+	test_vector();
+
 	/*************²âÊÔ¶ÓÁÐ*****************************/
 	queue<vector<int>> q1;
 	test_queue(q1, vector<int>(20));
@@ -46,11 +50,13 @@ int main()
 	map1[1] = "a";
 
 	map1 = map_sort(map1);
+	cout << "±éÀú×Öµä" << endl;
 	for (auto iter = map1.begin(); iter != map1.end(); iter++) {
 		cout << iter->first << iter->second << endl;
 	}
 	
 	/*************²âÊÔalgorithmËã·¨¿âÖÐµÄsort******************/
+	cout << "²âÊÔsortº¯Êý" << endl;
 	test_sort();
 
 	getchar();

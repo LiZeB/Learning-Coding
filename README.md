@@ -1,7 +1,8 @@
 ## 介绍
 1. Learning_cpp: 对C++各种特性的测试
-- 注意区分string和char *两种字符串表达方式之间的区别
-- 测试了queue的empty成员函数
+- 注意区分string和char * 两种字符串表达方式之间的区别
+- 测试了queue：empty()成员函数
+- 测试了vector：各种初始化方式的区别；
 - 测试了关联容器map的功能
 - 测试C++中algorithm库中自带的一些算法：sort()
 

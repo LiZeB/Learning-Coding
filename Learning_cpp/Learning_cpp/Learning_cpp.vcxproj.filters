@@ -24,12 +24,18 @@
     <ClCompile Include="container.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="test_algorithm.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="characters.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="container.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="test_algorithm.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

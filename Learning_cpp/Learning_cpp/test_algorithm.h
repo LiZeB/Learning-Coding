@@ -3,6 +3,6 @@
 #include <array>
 #include <iostream>
 
-using namesapce std;
+using namespace std;
 
 void test_sort();

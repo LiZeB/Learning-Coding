@@ -1,5 +1,20 @@
 #include "container.h"
 
+//测试vector的各种赋值方式
+void test_vector() {
+	vector<int> v1{ 1, 2, 3, 4, 5 };
+	vector<int> v2(v1);
+	v2.push_back(6);
+	for (auto &iter : v1) {
+		cout << iter << " ";
+	}
+	for (auto &iter : v2) {
+		cout << iter << " ";
+	}
+	cout << endl;
+
+}
+
 template<class T>
 void test_queue(queue<T> &q, T val) {
 	/*********************************
