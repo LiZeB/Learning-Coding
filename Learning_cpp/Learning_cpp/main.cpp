@@ -1,15 +1,13 @@
-#include<iostream>
 #include "characters.h"
 #include "container.cpp"
 #include "test_algorithm.cpp"
 
-int main()
-{
+int main() {
 	/***********²âÊÔsplict_stringµÄ´úÂë************/
-    char *input = "Hello World, my name is LiZeBin";     
-    vector<string> output;
-    output = splict_string(input, ",");
-    cout<<"original input:"<<input<<endl;  
+	   char *input = "Hello World, my name is LiZeBin";     
+	   vector<string> output;
+	   output = splict_string(input, ",");
+	   cout<<"original input:"<<input<<endl;  
 	cout << ", as separator:" << endl;
 	for (auto iter = output.begin();iter != output.end(); iter++) {
 		cout << (*iter) << endl;
@@ -62,3 +60,5 @@ int main()
 	getchar();
 	return 0;
 }
+
+

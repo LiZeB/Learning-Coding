@@ -1,9 +1,13 @@
 #include "container.h"
 
-//测试vector的各种赋值方式
+//测试vector的各种初始化方式
 void test_vector() {
+	/****************************************
+	v2(v1), v2 = v1 这两种初始化方式是一样
+	的，没有区别；
+	******************************************/
 	vector<int> v1{ 1, 2, 3, 4, 5 };
-	vector<int> v2(v1);
+	vector<int> v2(v1);    
 	v2.push_back(6);
 	for (auto &iter : v1) {
 		cout << iter << " ";
