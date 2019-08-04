@@ -25,6 +25,12 @@ void print_per(int n, int cur, int* a, vector<int> &v1) {
 }
 
 void generatePermutation(const int n, const vector<int> find_values) {
+	/******************************************
+	测试函数，主要针对一次笔试中的题目写的函数；
+	n：生成全排列的数字个数，题目中默认从1开始且连续；
+	find_values: 保存要查找的排列；
+	输入查找排列的索引Q,要输出字典序排列中的倒数第Q个排列
+	*******************************************/
 	int* a = new int[n];
 	vector<int> v1;
 	vector<vector<int>> result;
