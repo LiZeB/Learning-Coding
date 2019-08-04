@@ -119,9 +119,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="my_sort.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dictOrder.h" />
+    <ClInclude Include="my_sort.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
