@@ -27,9 +27,15 @@ int main()
 	cout << v1 << endl;*/
 
 	/***********²âÊÔ¹é²¢ÅÅÐò*************/
-	vector<double> v1{1,3,4,40,56,89,-100,5,6,7,8,1000};
+	/*vector<double> v1{1,3,4,40,56,89,-100,5,6,7,8,1000};
 	mergeSort(v1);
+	cout << v1 << endl;*/
+
+	/************²âÊÔ¿ìËÙÅÅÐò****************/
+	vector<double> v1{ -90,0,1,2,2,3};
+	quickSort(v1);
 	cout << v1 << endl;
+
 
 	getchar();
 	return 0;

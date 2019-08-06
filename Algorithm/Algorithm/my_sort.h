@@ -1,7 +1,8 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
-#include<math.h>
+#include<ctime>
+#include<cstdlib>
 
 using namespace std;
 
@@ -16,3 +17,6 @@ void bubbleSort(vector<T> &);
 
 template<class T>
 void mergeSort(vector<T> &);
+
+template<class T>
+void quickSort(vector<T> &);

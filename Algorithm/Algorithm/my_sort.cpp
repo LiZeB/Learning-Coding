@@ -146,9 +146,73 @@ vector<T> mergeSort(vector<T> &v1, int start, int end) {
 template<class T>
 void mergeSort(vector<T> &v1) {
 	/**************************************
-	归并排序：算法复杂度是O(NlogN),通过一个递归方程可以求得：T(N) = T(N/2)+N;
+	归并排序：算法复杂度是O(NlogN),通过一个
+	递归方程可以求得：T(N) = T(N/2)+N;
 	***************************************/
 	int N = v1.size();
 	vector<T> v2 = mergeSort(v1, 0, N-1);
 	v1 = v2;
+}
+
+
+template<class T>
+void quickSort(vector<T> &v1, int start, int end) {
+	if (end - start <= 0) {
+		return;
+	}
+	
+	/*************直接选择序列的最后一个元素作为枢纽元**********/
+	/*int n = end, i = start, j = end-1;   
+	T temp;*/
+
+	/*************随机指定一个元素作为枢纽元*******************/
+	int n = rand() % (end - start) + start, i = start, j = end - 1;   //第一次忘记写+start,这个地方一定要细心
+	T temp = v1[n];
+	v1[n] = v1[end];
+	v1[end] = temp;
+
+	bool flag_less = false, flag_greater = false;
+
+	while (i <= j) {
+		if (v1[i] < v1[end]) {
+			i++;
+		}
+		else {
+			flag_less = true;
+		}
+		if (v1[j]>= v1[end]) {
+			j--;
+		}
+		else {
+			flag_greater = true;
+		}
+		if (flag_less && flag_greater) {
+			temp = v1[j];
+			v1[j] = v1[i];
+			v1[i] = temp;
+			flag_less = false;
+			flag_greater = true;
+		}
+	}
+	if (j < i) {
+		temp = v1[i];
+		v1[i] = v1[end];
+		v1[end] = temp;
+	}
+	quickSort(v1, start, i-1);     //这里也要注意写成i-1
+	quickSort(v1, i + 1, end);
+
+}
+
+template<class T>
+void quickSort(vector<T> &v1) {
+	/************************************************\
+	快速排序：平均运行时间是O(N logN),它的最坏情形性能是O(N^2)。
+	和归并排序一样，快速排序也是一种分治的递归算法。枢纽元的选择策略：
+	不要选择第一个元素，因为如果输入序列是预排序的，
+	这种分割将是非常劣质的。一种安全的方针是随机选取枢纽元，
+	但是随机数的生成开销显著。枢纽元的最好选择是数组的中值。
+	*************************************************/
+	int N = v1.size();
+	quickSort(v1, 0, N - 1);
 }
