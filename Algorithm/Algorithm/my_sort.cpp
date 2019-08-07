@@ -17,6 +17,7 @@ ostream & operator <<(ostream &os, vector<vector<T>> &v1) {
 		for (auto const &iter2 : iter1) {
 			os << iter2 << " ";
 		}
+		os << endl;
 	}
 	return os;
 }
@@ -191,7 +192,7 @@ void quickSort(vector<T> &v1, int start, int end) {
 			v1[j] = v1[i];
 			v1[i] = temp;
 			flag_less = false;
-			flag_greater = true;
+			flag_greater = false;
 		}
 	}
 	if (j < i) {
@@ -213,6 +214,8 @@ void quickSort(vector<T> &v1) {
 	这种分割将是非常劣质的。一种安全的方针是随机选取枢纽元，
 	但是随机数的生成开销显著。枢纽元的最好选择是数组的中值。
 	*************************************************/
+	srand((int)time(0));
+
 	int N = v1.size();
 	quickSort(v1, 0, N - 1);
 }

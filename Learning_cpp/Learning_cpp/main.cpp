@@ -57,6 +57,10 @@ int main() {
 	cout << "²âÊÔsortº¯Êı" << endl;
 	test_sort();
 
+	int b = 10;
+	const int &a = b;
+	cout << a << endl;
+
 	getchar();
 	return 0;
 }
