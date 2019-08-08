@@ -21,12 +21,18 @@
     <ClCompile Include="my_sort.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="my_search.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dictOrder.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="my_sort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="my_search.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

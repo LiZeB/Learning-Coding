@@ -1,5 +1,6 @@
 #include "dictOrder.h"
 #include "my_sort.cpp"
+#include "my_search.cpp"
 
 int main()
 {
@@ -33,10 +34,18 @@ int main()
 
 	/************测试快速排序****************/
 	vector<double> v1{1,2,3,3,2,-90,-90,6,2,4,5,1,2,3,0,7,4,5,9,10,34,25,-90.0, 100.0,1,3,4,40,56,89,-100,5,6,7,8,100};
-	vector<double> v2{ -100,-90,-90,-90,0,1,1,1,2,2,2,2,3,3,3,3,4,4,4,5,5,5,6,6,7,7,8,9,10,25,34,40,56,89,100,100};
+	vector<double> v2{9,8,7,6,5,4,3,2,1,0};
+	vector<double> v3{ 2 };
 	quickSort(v2);
 	cout << v2 << endl;
 
+	/***************测试二分查找**************/
+	double value = 0;
+	int index = halfSearch(v3, value);
+	cout << index <<endl;
+	if (index != -1) {
+		cout << v2[index] << endl;
+	}
 
 	getchar();
 	return 0;
