@@ -131,6 +131,10 @@
     <ClInclude Include="container.h" />
     <ClInclude Include="test_algorithm.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="input_file.txt" />
+    <Text Include="map_file.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

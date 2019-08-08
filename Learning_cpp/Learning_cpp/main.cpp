@@ -3,7 +3,7 @@
 #include "test_algorithm.cpp"
 
 int main() {
-	/***********测试splict_string的代码************/
+	/***********splict_string的代码************/
 	   char *input = "Hello World, my name is LiZeBin";     
 	   vector<string> output;
 	   output = splict_string(input, ",");
@@ -25,7 +25,7 @@ int main() {
 		cout << output[i] << endl;
 	}
 
-	/***********测试各个基本内置类型的字节数*********/
+	/***********各个基本内置类型的字节数*********/
 	cout << "sizeof(int):" << sizeof(int) << endl;
 	cout << "sizeof(int *):" << sizeof(int *) << endl;
 	cout << "sizeof(double):" << sizeof(double) << endl;
@@ -33,15 +33,15 @@ int main() {
 	cout << "sizeof(char):"<<sizeof(char) << endl;
 	cout << "sizeof(char *):"<<sizeof(char *) << endl;
 
-	/********************测试vector*********************/
+	/********************vector*********************/
 	cout << "测试vector" << endl;
 	test_vector();
 
-	/*************测试队列*****************************/
+	/*************队列*****************************/
 	queue<vector<int>> q1;
 	test_queue(q1, vector<int>(20));
 	
-	/*******************测试map字典********************/
+	/*******************map字典********************/
 	map<int, char*> map1;
 	map1[3] = "c";
 	map1[2] = "b";
@@ -53,13 +53,23 @@ int main() {
 		cout << iter->first << iter->second << endl;
 	}
 	
-	/*************测试algorithm算法库中的sort******************/
+	/*************algorithm算法库中的sort******************/
 	cout << "测试sort函数" << endl;
 	test_sort();
 
+	/*************测试常量引用**********************************/
 	int b = 10;
 	const int &a = b;
 	cout << a << endl;
+
+	/*************************string************************/
+	string s = " abc    ";
+	cout << s.substr(1) << endl;
+
+	/********************关联容器、文件流、字符流***************/
+	ifstream input_file("input_file.txt"), map_file("map_file.txt");
+	cout << input_file.is_open() << endl;
+	words_transform(map_file, input_file);
 
 	getchar();
 	return 0;

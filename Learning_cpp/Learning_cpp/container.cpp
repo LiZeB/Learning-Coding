@@ -39,3 +39,38 @@ map<T, E>  map_sort(map<T, E> &map1) {
 
 	return map2;
 }
+
+map<string, string> get_map(ifstream &map_file) {
+	/********************************************
+	从单词置换规则文件中获取单词置换规则的字典
+	*********************************************/
+	map<string, string> map_rule;
+	string key, mapped_value;
+	while (map_file >> key && getline(map_file, mapped_value)) {
+		map_rule[key] = mapped_value.substr(1);
+	}
+	return map_rule;
+}
+
+void words_transform(ifstream &map_file, ifstream &input_file) {
+	/*********************************************
+	重写C++ primer第11.3.6小节中出现的单词置换程序
+	map_file: 置换规则的文件流；
+	input_file：输入文本的文件流；
+	**********************************************/
+	map<string, string> map_rule = get_map(map_file);
+	ofstream output_file("result.txt", ofstream::out);
+
+	string index_string;
+	while (getline(input_file, index_string)) {
+		istringstream s1(index_string);
+		string word;
+		while (s1 >> word) {
+			if (map_rule.find(word) != map_rule.end()) {
+				word = map_rule[word];
+			}
+			output_file << word << " ";
+		}
+		output_file << endl;
+	}
+}
