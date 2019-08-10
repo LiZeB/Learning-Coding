@@ -3,6 +3,7 @@ public class link
     public node head;
     //public node cur;
 
+    //注意这里构造函数和stack8link中的不同，这里我直接把头节点设为了null
     public link(){
         this.head = null;
     }
@@ -143,7 +144,7 @@ class node{
     private int value;
     private node next;
 
-    public node(int value){
+    public node(Integer value){
         this.value = value;
     }
 
