@@ -11,7 +11,7 @@ public class stack {
     }
 
     //入栈，注意：数组的尾部是栈的顶部
-    public void pull(int value){
+    public void push(int value){
         top = top + 1;
         array[top] = value;
     }
@@ -58,9 +58,9 @@ public class stack {
 class test{
     public static void main(String args[]){
         stack my_stack = new stack(3);
-        my_stack.pull(3);
-        my_stack.pull(2);
-        my_stack.pull(1);
+        my_stack.push(3);
+        my_stack.push(2);
+        my_stack.push(1);
         my_stack.read();
         System.out.println(my_stack.isempty());
         System.out.println(my_stack.isfull());

@@ -11,7 +11,7 @@ public class stack8link {
     }
 
     //入栈
-    public void pull(Integer value){
+    public void push(Integer value){
         if(count < maxsize) {
             node4stack temp_node = new node4stack(value);
             temp_node.setNext(top);
@@ -102,9 +102,9 @@ class test_stack8link{
         System.out.println(my_link.isempty());
         System.out.println(my_link.isfull());
         my_link.pop();
-        my_link.pull(1);
-        my_link.pull(2);
-        my_link.pull(3);
+        my_link.push(1);
+        my_link.push(2);
+        my_link.push(3);
         my_link.read();
         System.out.println(my_link.isempty());
         System.out.println(my_link.isfull());
