@@ -1,7 +1,6 @@
 public class link
 {
     public node head;
-    //public node cur;
 
     public link(){
         this.head = null;
@@ -10,7 +9,7 @@ public class link
     //从头添加元素
     public void add(int value){
         node cur = new node(value);
-        cur.setNext(head);//这一步很重要，只是我暂时还没想明白。。。
+        cur.setNext(head);//这一步很重要，只是我暂时还没想明白。。。【其实这一步很简单】
         head = cur;
     }
 
