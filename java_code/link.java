@@ -138,6 +138,46 @@ public class link
         ans[1] = slow.getValue();
         return ans;
     }
+
+    //冒泡排序，仅交换节点的value而不交换节点
+    public void bubble_sort(){
+        node cur = head;
+        //System.out.println("头节点的value：" + cur.getValue());
+        for(int i=0;i<this.count_link() - 1;i++){
+            node left = head;
+            node right = left.getNext();
+            for(int j=0;j<this.count_link() - i - 1;j++){
+                if(left.getValue() > right.getValue()){
+                    int temp_value = left.getValue();
+                    left.setValue(right.getValue());
+                    right.setValue(temp_value);
+                }
+                left = left.getNext();
+                right = right.getNext();
+            }
+        }
+    }
+
+    //选择排序，同样只是交换value而不交换节点本身，逻辑好像有点不太对？？？
+    public void select_sort(){
+        node cur = head;
+        for(int i=0;i<this.count_link();i++){
+            node cur_min = cur;
+            node move = cur.getNext();
+            for(int j=i+1;j<this.count_link();j++){
+                //int min_value = cur_min.getValue();
+                if(move.getValue() < cur_min.getValue()){
+                    int temp_value = move.getValue();
+                    move.setValue(cur_min.getValue());
+                    cur_min.setValue(temp_value);
+                }
+                move = move.getNext();
+            }
+            //cur_min = cur_min.getNext();
+            cur = cur.getNext();
+
+        }
+    }
 }
 class node{
     private int value;
@@ -155,6 +195,10 @@ class node{
         return this.next;
     }
 
+    public void setValue(int new_value){
+        this.value = new_value;
+    }
+
     public int getValue(){
         return this.value;
     }
@@ -163,9 +207,12 @@ class node{
 //测试单元
 class test_link{
     public static void main(String args[]){
-        int[] array = {1, 2, 3, 4, 5};
+        int[] array = {5,2,1,3,6,7,4,9,8};
         link my_link = new link();
         my_link.array2link(array);
+        my_link.read_link();
+        //my_link.bubble_sort();
+        my_link.select_sort();
         my_link.read_link();
     }
 }
