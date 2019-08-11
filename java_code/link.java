@@ -1,7 +1,6 @@
 public class link
 {
     public node head;
-    //public node cur;
 
     //注意这里构造函数和stack8link中的不同，这里我直接把头节点设为了null
     public link(){
@@ -11,7 +10,7 @@ public class link
     //从头添加元素
     public void add(int value){
         node cur = new node(value);
-        cur.setNext(head);//这一步很重要，只是我暂时还没想明白。。。
+        cur.setNext(head);//这一步很重要，只是我暂时还没想明白。。。【其实这一步很简单】
         head = cur;
     }
 
