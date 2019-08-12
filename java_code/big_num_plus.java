@@ -82,7 +82,7 @@ public class big_num_plus {
             }
         }
         else {
-            for (int i = ans.length - 1; i >= 0; i--) {
+            for (int i = ans.length - 2; i >= 0; i--) {
                 result_left.append(ans[i]);
             }
         }
