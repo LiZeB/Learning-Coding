@@ -6,7 +6,7 @@ import java.util.Scanner;
  char num2 = '3';
  int ans = num1 + num2 - 2 * '0';
  System.out.println(ans);
- //数字和其ASCII值之间相差48，'0'的ASC码为48，就是：ASC(num) = int 'num' + 48(int '0')这种关系，所以两个数相加就减去2个'0'
+ //数字和其ASCII值之间相差48，'0'的ASC码为48，就是：ASC(num) = int 'num' - 48(int '0')这种关系，所以两个数相加就减去2个'0'
  */
 
 public class big_num_plus {
@@ -71,12 +71,20 @@ public class big_num_plus {
             jinwei_left = sum / 10;//取商
         }
         if(jinwei_left  == 1){
-            ans[num1.length()] = 1;
+            ans[num1_left.length()] = 1;
         }
 
         StringBuffer result_left = new StringBuffer();
-        for(int i=ans.length -2;i>=0;i--){
-            result_left.append(ans[i]);
+        if(jinwei_left == 1){
+            result_left.append(1);
+            for(int i=ans.length - 2;i>=0;i--){
+                result_left.append(ans[i]);
+            }
+        }
+        else {
+            for (int i = ans.length - 1; i >= 0; i--) {
+                result_left.append(ans[i]);
+            }
         }
         StringBuffer result_right = new StringBuffer();
         for(int j=1;j<ans_right.length;j++){
