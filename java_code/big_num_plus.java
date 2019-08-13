@@ -8,7 +8,7 @@ import java.util.Scanner;
  System.out.println(ans);
  数字和其ASCII值之间相差48，'0'的ASC码为48，就是：ASC(num) = int 'num' + 48(int '0')这种关系，所以两个数相加就减去2个'0'
  
- 使用条件：不能针对负数进行加减
+ 使用条件：不能针对负数进行加减，必须都带小数点
  **/
 
 public class big_num_plus {
