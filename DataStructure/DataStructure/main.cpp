@@ -7,7 +7,7 @@
 using namespace std;
 
 int main() {
-	/*********测试链表的代码**********/
+	cout << "*********测试链表的代码**********" << endl;
 	chain<int> linkList;
 
 	//测试链表的插入
@@ -42,7 +42,7 @@ int main() {
 	linkList2.binSort(linkList2.getMax()+1);
 	linkList2.output(cout);
 
-	/***********测试栈的代码***********/
+	cout << "***********测试栈的代码***********" << endl;
 	linkedStack<int> stack1;
 
 	for (int j = 0; j < 10; j++) {
@@ -56,7 +56,7 @@ int main() {
 	}
 	cout << endl;
 	
-	/***************测试二叉树的代码*****************/
+	cout << "***************测试二叉树的代码*****************" << endl;
 	linkedBinaryTree<int> a, x, y, z;
 	y.makeTree(1, a, a);
 	z.makeTree(2, a, a);
@@ -75,7 +75,7 @@ int main() {
 	cout << "Levelorder sequence is ";
 	y.levelOrderOutput();
 
-	/****************测试二叉搜索树*******************/
+	cout << "****************测试二叉搜索树*******************" << endl;
 	binarySearchTree<int, char> y1;
 	y1.insert(pair<int, char>(1, 'a'));
 	y1.insert(pair<int, char>(6, 'c'));
@@ -87,7 +87,7 @@ int main() {
 	y1.erase(a_1);
 	cout << "Tree size is " << y1.size() << endl;
 
-	/*****************测试哈希算法************************/
+	cout << "*****************测试哈希算法************************" << endl;
 	//针对<int, int>类型
 	hashChains<int, int> z1;
 	z1.insert({ 1,1 });
@@ -129,7 +129,7 @@ int main() {
 	x1.erase(24);
 	x1.output(cout);
 
-	/***********************图的基本操作**********************/
+	cout << "*******************图的基本操作********************" << endl;
 	test_graph();
 
 	getchar();
