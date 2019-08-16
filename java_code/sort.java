@@ -88,10 +88,51 @@ public class sort {
         quick_sort(a,i+1,high);
     }
 
+    //二分查找--递归
+    public static int mid_sort(int[] array, int start, int end, int value){
+        if(start <= end){
+            int middle = (start + end) / 2;
+            if(array[middle] == value){
+                return middle;
+            }
+            else if(array[middle] < value){
+                return mid_sort(array, middle + 1, end, value);
+            }
+            else{
+                return mid_sort(array, start, middle - 1, value);
+            }
+        }
+        else{
+            return -1;
+        }
+    }
+
+    //二分查找--通常
+    public static int mid_sort_2(int[] array, int value){
+        int start = 0;
+        int end = array.length - 1;
+        while(start <= end){
+            int middle = (start + end) / 2;
+            if(array[middle] == value){
+                return middle;
+            }
+            else if(array[middle] < value){
+                start = middle + 1;
+                //end = end;
+            }
+            else{
+                //start = start;
+                end = middle - 1;
+            }
+        }
+        return -1;
+    }
+
     public static void main(String args[]){
-        int[] array = {3,1,4,2,5,6};
-        array = Bomb_sort(array);
-        System.out.println(Arrays.toString(array));
+        int[] array = {11};
+        //array = Bomb_sort(array);
+        //System.out.println(mid_sort(array,0, array.length - 1, 10));
+        System.out.println(mid_sort(array, 0, array.length - 1, 11));
     }
 }
 
