@@ -119,12 +119,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="forward_list.h" />
+    <ClInclude Include="graph.h" />
     <ClInclude Include="hash.h" />
     <ClInclude Include="linkedBinaryTree.h" />
     <ClInclude Include="stack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="forward_list.cpp" />
+    <ClCompile Include="graph.cpp" />
     <ClCompile Include="linkedBinaryTree.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
