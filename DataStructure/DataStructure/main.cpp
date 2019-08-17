@@ -7,7 +7,7 @@
 using namespace std;
 
 int main() {
-	cout << "*********测试链表的代码**********" << endl;
+	cout << "*********测试链表的代码*************" << endl;
 	chain<int> linkList;
 
 	//测试链表的插入

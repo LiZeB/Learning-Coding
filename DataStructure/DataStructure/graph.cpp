@@ -37,7 +37,7 @@ void test_graph() {
 		cout << temp << endl;
 
 	cout << "***********测试邻接表表示的图*****************" << endl;
-	adjacencyWDigraph2<int> g1(4);
+	adjacencyWDigraph2<int> g1(5);
 	cout << "Number of Vertices = " << g1.numberOfVertices() << endl;
 	cout << "Number of Edges = " << g1.numberOfEdges() << endl;
 
@@ -45,6 +45,8 @@ void test_graph() {
 	g1.insertEdge(new weightedEdge<int>(1, 3, 2));
 	g1.insertEdge(new weightedEdge<int>(2, 1, 3));
 	g1.insertEdge(new weightedEdge<int>(1, 4, 4));
+	g1.insertEdge(new weightedEdge<int>(2, 5, 4));
+	g1.insertEdge(new weightedEdge<int>(3, 5, 1));
 	g1.insertEdge(new weightedEdge<int>(4, 2, 5));
 	cout << "The graph is" << endl;
 	cout << "Number of Vertices = " << g1.numberOfVertices() << endl;
@@ -62,6 +64,14 @@ void test_graph() {
 	cout << "outDegree(1) = " << g1.outDegree(1) << endl;
 	cout << "Number of Vertices = " << g1.numberOfVertices() << endl;
 	cout << "Number of Edges = " << g1.numberOfEdges() << endl;
+
+	cout << "广度优先搜索的结果：";
+	vector<int> result = g1.bfs(1);
+	cout << result;
+
+	cout << "深度优先搜索的结果：";
+	vector<int> result1 = g1.dfs(1);
+	cout << result1;
 }
 
 
