@@ -1,7 +1,20 @@
 #include<iostream>
 #include<sstream>
+#include<queue>
+#include<vector>
 
 using namespace std;
+
+/**********************工具函数*******************/
+template<class T>
+void operator <<(ostream &out, vector<T> &v) {
+	for (auto i : v) {
+		cout << i << " ";
+	}
+	cout << endl;
+}
+
+
 
 template <class T>
 class weightedEdge{
@@ -56,6 +69,9 @@ public:
 	virtual bool directed() const = 0;        //检查是否为有向图
 	virtual bool weighted() const = 0;        //检查是否为加权图
 	virtual void output(ostream &) const = 0;           //输出一张图
+
+	virtual vector<int> bfs(int) const { return vector<int>(); }  //广度优先搜索
+	virtual vector<int> dfs(int) const { return vector<int>(); }   //深度优先搜索
 };
 
 /**************************************************
@@ -343,6 +359,35 @@ public:
 		}
 	}
 
+	class myIterator{
+	public:
+		myIterator(weightedEdge<T> **a, int theRow) {
+			currentVertex = a[theRow];
+		}
+
+		~myIterator() {}
+
+		weightedEdge<T>* next() {
+			while (currentVertex != NULL) {
+				weightedEdge<T> *preVertex = currentVertex;
+				currentVertex=currentVertex->next;
+				return preVertex;
+			}
+			return NULL;
+			
+		}
+
+	protected:
+		weightedEdge<T> *currentVertex;     //当前结点
+	};
+
+	//对邻接表的某一行生成迭代器。注意：这里这个迭代器还不能正常运行
+	myIterator* iterator(weightedEdge<T> **a, int theVertex)
+	{
+		checkVertex(theVertex);
+		return new myIterator(a, theVertex);
+	}
+
 	int outDegree(int theVertex) const {
 		checkVertex(theVertex);
 
@@ -370,6 +415,68 @@ public:
 				out << endl;
 			}
 		}
+	}
+
+	/***************************************
+	图的广度优先搜索：类似于二叉树的层次遍历
+	****************************************/
+	vector<int> bfs(int sourceVertex) const{
+		checkVertex(sourceVertex);
+
+		queue<int> q;
+		vector<int> result;
+		bool *flag = new bool[n+1];
+		for (int i = 1; i <= n; i++) {
+			flag[i] = false;
+		}
+		q.push(sourceVertex);
+
+		while (!q.empty()) {
+			int temp = q.front();
+			q.pop();
+			if (!flag[temp]) {
+				result.push_back(temp);
+				flag[temp] = true;
+			}
+			
+			weightedEdge<T> *index = a[temp];
+			while ((index != NULL) && !flag[index->vertex2()] ) {
+				q.push(index->vertex2());
+				index = index->next;
+			}
+		}
+		return result;
+	}
+
+	void dfs(int theRow, vector<int> &result, bool *flag) {
+		weightedEdge<T> *root = a[theRow];
+		if (root != NULL) {
+			result.push_back(root->vertex1());
+			flag[root->vertex1()] = true;
+
+			weightedEdge<T> *index = root;
+			while ((index != NULL) && (!flag[index->vertex2()])) {
+				dfs(index->vertex2(), result, flag);
+				index = index->next;
+			}
+		}
+		else {
+			result.push_back(theRow);
+			flag[theRow] = true;
+		}
+	}
+
+	/***************************************
+	图的深度优先搜索：类似于二叉树的前序遍历
+	****************************************/
+	vector<int> dfs(int sourceVertex) {
+		vector<int> result;
+		bool *flag = new bool[n + 1];
+		for (int i = 1; i <= n; i++) {
+			flag[i] = false;
+		}
+		dfs(sourceVertex, result, flag);
+		return result;
 	}
 };
 
