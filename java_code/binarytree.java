@@ -27,7 +27,7 @@ public class binarytree {
         return root;
     }
 
-    //有序数组转二叉搜索树，对于边界部分有疑问，为什么end != array.length - 1???
+    //数组转二叉搜索树，对于边界部分有疑问，为什么end != array.length - 1???
     tree_node array2bst(int[] array, int start, int end){
         Arrays.sort(array);
         if(start == end){
