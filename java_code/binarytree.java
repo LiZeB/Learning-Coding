@@ -14,7 +14,7 @@ public class binarytree {
 
     //能不能输入一个数组，自动构造二叉树？？
     void make_tree(){
-        //连接节点，构造🌲
+        //连接节点，构造树
         root.setLeft_child(left1);
         root.setRight_child(right1);
         right1.setLeft_child(right2);
