@@ -19,7 +19,7 @@ public class study_lock {
 class job_1 implements Runnable{
     @Override
     public void run(){
-        study_lock.my_lock.lock();//获取第一个锁
+        study_lock.my_lock.lock();  //获取第一个锁
 
         System.out.println("当前线程：" + Thread.currentThread().getName() + "获得了：" + study_lock.obj_1);
         try{

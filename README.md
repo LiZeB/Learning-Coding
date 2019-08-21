@@ -2,12 +2,16 @@
 
 ###  1. Learning_cpp
 对C++各种特性的测试
-- 注意区分string和char * 两种字符串表达方式之间的区别
-- 测试了queue：empty()成员函数
-- 测试了vector：各种初始化方式的区别；
-- 测试了关联容器map的功能
-- 测试C++中algorithm库中自带的一些算法：sort()
+- queue：empty()成员函数
+- vector：各种初始化方式的区别；
+- 关联容器：map
+- C++中algorithm库中自带的一些算法：sort()
 - 自己重新实现了一遍C++ primer第11.3.6小节中出现的单词置换程序，用到了文件输入输出流、字符流、字典
+- 字符串操作：全面熟悉了C++中string、char*这两种字符串的各种操作；
+- thread多线程类：
+	- thread的常用操作；
+	- 利用mutex对线程进行加锁；
+	- 多线程笔试题：多个线程按顺序打印字母，比如ABCABCABC
 
 ###  2. DataStructure
 常见数据结构的实现

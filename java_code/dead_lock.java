@@ -16,7 +16,7 @@ class thread_1_job implements Runnable{
     public void run() {
         try{
             synchronized (dead_lock.lock_1){
-                System.out.println("当前线程：" + Thread.currentThread().getName() + ",它握住了：" + dead_lock.lock_1);
+                System.out.println("当前线程：" + Thread.currentThread().getName() + ",它锁住了：" + dead_lock.lock_1);
                 Thread.sleep(1000);
                 //从这里开始，两个线程就进入相互等待对方释放锁的死锁状态了。
                 synchronized (dead_lock.lock_2){
@@ -34,7 +34,7 @@ class thread_2_job implements Runnable{
     public void run(){
         try{
             synchronized (dead_lock.lock_2){
-                System.out.println("当前线程：" + Thread.currentThread().getName() + ", 它握住了：" + dead_lock.lock_2);
+                System.out.println("当前线程：" + Thread.currentThread().getName() + ", 它锁住了：" + dead_lock.lock_2);
                 Thread.sleep(1000);
                 synchronized (dead_lock.lock_1){
                     System.out.println("当前线程：" + Thread.currentThread().getName() + ",尝试获得：" + dead_lock.lock_1);

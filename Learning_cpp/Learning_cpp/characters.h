@@ -5,8 +5,11 @@
 #include<vector>
 #include<cstring>
 #include<string>
+#include <typeinfo>
 
 
 using namespace std;
 
-vector<string> splict_string(const char *input, const char* delim);
+vector<string> splict(const char *input, const char* delim);
+
+void test_string();

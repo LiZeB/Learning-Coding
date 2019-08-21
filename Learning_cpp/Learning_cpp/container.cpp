@@ -47,7 +47,7 @@ map<string, string> get_map(ifstream &map_file) {
 	map<string, string> map_rule;
 	string key, mapped_value;
 	while (map_file >> key && getline(map_file, mapped_value)) {
-		map_rule[key] = mapped_value.substr(1);
+		map_rule[key] = mapped_value.substr(1);   //这里的substr(1)是去掉空格
 	}
 	return map_rule;
 }
