@@ -3,6 +3,7 @@
 #include "linkedBinaryTree.cpp"
 #include "hash.h"
 #include "graph.h"
+#include "my_heap.h"
 
 using namespace std;
 
@@ -131,6 +132,9 @@ int main() {
 
 	cout << "*******************图的基本操作********************" << endl;
 	test_graph();
+
+	cout << "********************堆的基本操作*****************" << endl;
+	test_heap();
 
 	getchar();
 	return 0;

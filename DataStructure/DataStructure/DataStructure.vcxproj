@@ -122,6 +122,7 @@
     <ClInclude Include="graph.h" />
     <ClInclude Include="hash.h" />
     <ClInclude Include="linkedBinaryTree.h" />
+    <ClInclude Include="my_heap.h" />
     <ClInclude Include="stack.h" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +130,7 @@
     <ClCompile Include="graph.cpp" />
     <ClCompile Include="linkedBinaryTree.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="my_heap.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
