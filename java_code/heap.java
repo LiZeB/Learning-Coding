@@ -10,7 +10,7 @@ public class heap {
     heap(int size){
         my_heap = new int[size];
         max_size = size;
-        int current_size = 0;
+        current_size = 0;
     }
 
     //打印
@@ -108,16 +108,9 @@ class test_heap{
         heap my_heap = new heap(8);
         int[] array = {4,7,5,6,2,3,1,8};
         my_heap.array2heap(array);
-        //my_heap.insert(5);
-        //my_heap.insert(4);
-        //my_heap.insert(6);
-        //my_heap.insert(7);
         my_heap.print_heap();
-        //my_heap.insert(10);
         my_heap.delete(2);
         my_heap.print_heap();
-        //System.out.println(my_heap.isEmpty());
-        //System.out.println(my_heap.isFull());
 
         //堆排序
         System.out.println(my_heap.heap_size());
