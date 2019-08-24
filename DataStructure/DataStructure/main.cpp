@@ -57,7 +57,7 @@ int main() {
 	}
 	cout << endl;
 	
-	cout << "***************测试二叉树的代码*****************" << endl;
+	cout << "***************测试二叉树的代码******************" << endl;
 	linkedBinaryTree<int> a, x, y, z;
 	y.makeTree(1, a, a);
 	z.makeTree(2, a, a);
@@ -88,7 +88,7 @@ int main() {
 	y1.erase(a_1);
 	cout << "Tree size is " << y1.size() << endl;
 
-	cout << "*****************测试哈希算法************************" << endl;
+	cout << "*****************测试哈希算法********************" << endl;
 	//针对<int, int>类型
 	hashChains<int, int> z1;
 	z1.insert({ 1,1 });
@@ -130,7 +130,7 @@ int main() {
 	x1.erase(24);
 	x1.output(cout);
 
-	cout << "*******************图的基本操作********************" << endl;
+	cout << "*******************图的基本操作******************" << endl;
 	test_graph();
 
 	cout << "********************堆的基本操作*****************" << endl;

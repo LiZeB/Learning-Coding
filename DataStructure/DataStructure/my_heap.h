@@ -1,7 +1,12 @@
 #include<iostream>
+#include<ostream>
+#include<vector>
 
 using namespace std;
 
+/*****************************************
+MaxHeap是一个最大堆：堆的基础是完全二叉树
+******************************************/
 template<class T>
 class MaxHeap {
 public:
@@ -17,8 +22,10 @@ public:
 			return heap[1];
 	}
 	MaxHeap<T>& insert(const T& x);
-	MaxHeap<T>& deleteMax(T& x);
-	void initialize(T a[], int size, int ArraySize);
+	MaxHeap<T>& deleteMax(T& x);    //x接收参数返回的结果
+
+	void initialize();
+	void output(ostream&);
 
 private:
 	int currentSize, maxSize;
