@@ -118,6 +118,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="avl.h" />
     <ClInclude Include="forward_list.h" />
     <ClInclude Include="graph.h" />
     <ClInclude Include="hash.h" />
@@ -126,6 +127,7 @@
     <ClInclude Include="stack.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="avl.cpp" />
     <ClCompile Include="forward_list.cpp" />
     <ClCompile Include="graph.cpp" />
     <ClCompile Include="linkedBinaryTree.cpp" />
