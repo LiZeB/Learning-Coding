@@ -74,3 +74,6 @@ java学习
 - 死锁：
     - （1）synchronized实现；
     - （2）lock实现；
+
+## 5.Socket
+Linux下Socket编程
