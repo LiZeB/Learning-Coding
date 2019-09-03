@@ -82,3 +82,6 @@ java学习
 
 ## 5.Socket
 Linux下Socket编程
+
+## 6.MySQL
+- 用C++连接本地MySQL数据库，并做一些简单地查询操作；
