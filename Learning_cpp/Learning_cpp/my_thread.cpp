@@ -109,5 +109,6 @@ void test_thread(){
 		t[i].join();
 	}
 
+	cout << endl;
 	getchar();
 }

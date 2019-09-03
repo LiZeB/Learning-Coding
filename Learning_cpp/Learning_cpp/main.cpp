@@ -4,7 +4,7 @@
 #include "my_thread.cpp"
 
 int main() {
-	cout << "***********splict_string的代码************" << endl;
+	cout << "***********splict_string的代码*********************" << endl;
 	char *input = "Hello World, my name is LiZeBin";     
     vector<string> output;
     output = splict(input, ",");
@@ -26,23 +26,29 @@ int main() {
 		cout << output[i] << endl;
 	}
 
-	cout << "***********各个基本内置类型的字节数*********" << endl;
+	cout << "***********各个基本内置类型的字节数******************" << endl;
 	cout << "sizeof(int):" << sizeof(int) << endl;
 	cout << "sizeof(int *):" << sizeof(int *) << endl;
 	cout << "sizeof(double):" << sizeof(double) << endl;
 	cout << "sizeof(double *):" << sizeof(double *) << endl;
 	cout << "sizeof(char):"<<sizeof(char) << endl;
 	cout << "sizeof(char *):"<<sizeof(char *) << endl;
+	int a1[] = { 0, 1, 2, 3, 4, 5 };
+	char *a2 = "012345";
+	cout << "sizeof(a1):" << sizeof(a1) << endl;
+	cout << "sizeof(*a1):" << sizeof(*a1) << endl;
+	cout << "sizeof(*a2):" << sizeof(*a2) << endl;
+	cout << "sizeof(a2):" << sizeof(a2) << endl;
 
-	cout << "********************vector*********************" << endl;
+	cout << "********************vector***************************" << endl;
 	cout << "测试vector" << endl;
 	test_vector();
 
-	cout << "*************队列*****************************" << endl;
+	cout << "*************队列************************************" << endl;
 	queue<vector<int>> q1;
 	test_queue(q1, vector<int>(20));
 	
-	cout << "*******************map字典********************" << endl;
+	cout << "*******************map字典***************************" << endl;
 	map<int, char*> map1;
 	map1[3] = "c";
 	map1[2] = "b";
@@ -58,16 +64,16 @@ int main() {
 	cout << "测试sort函数" << endl;
 	test_sort();
 
-	cout << "*************测试常量引用**********************************" << endl;
+	cout << "*************测试常量引用*****************************" << endl;
 	int b = 10;
 	const int &a = b;
 	cout << a << endl;
 
-	cout << "*************************string************************" << endl;
+	cout << "*************************string***********************" << endl;
 	string s = " abc    ";
 	cout << s.substr(1) << endl;
 
-	cout << "********************关联容器、文件流、字符流***************" << endl;
+	cout << "********************关联容器、文件流、字符流*********" << endl;
 	ifstream input_file("input_file.txt"), map_file("map_file.txt");
 	cout << input_file.is_open() << endl;
 	words_transform(map_file, input_file);
