@@ -80,8 +80,9 @@ java学习
     - (2)完全背包问题；
     - (3)多重背包问题；
 
-## 5.Socket
+### 5.Socket
 Linux下Socket编程
 
-## 6.MySQL
+### 6.MySQL
 - 用C++连接本地MySQL数据库，并做一些简单地查询操作；
+- 从select查询结果生成新表；
