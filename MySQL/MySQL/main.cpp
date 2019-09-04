@@ -43,8 +43,9 @@ int main()
 			while (sql_row = mysql_fetch_row(result)){
 				for (unsigned int i = 0; i < num_fields; i++) {
 					cout << (sql_row[i] ? sql_row[i] : "NULL") << endl;
-					out_file << (sql_row[i] ? sql_row[i] : "NULL") <<endl;
-				}	
+					out_file << (sql_row[i] ? sql_row[i] : "NULL") <<" ";
+				}
+				out_file << endl;
 			}
 		}
 	}
