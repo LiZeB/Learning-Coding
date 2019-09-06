@@ -12,7 +12,8 @@
 	- thread的常用操作；
 	- 利用mutex对线程进行加锁；
 	- 多线程笔试题：多个线程按顺序打印字母，比如ABCABCABC
-
+	- 锁管理类：unique_lock，lock_guard; 设置条件协调线程运行的条件变量类：condition_variable;
+	- 锁的概念：C++中锁有一个作用域，作用域内所有的资源都会被锁定，只能被一个线程使用，比如变量、输入输出流;
 ###  2. DataStructure
 常见数据结构的实现
 - 单向链表；

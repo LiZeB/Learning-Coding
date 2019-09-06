@@ -43,7 +43,7 @@ public:
 };
 
 int g_num = 0;  // 为 g_num_mutex 所保护
-std::mutex g_num_mutex;
+mutex g_num_mutex;
 
 void slow_increment(int id)
 {
@@ -59,16 +59,7 @@ void slow_increment(int id)
 
 mutex lock1;    //锁不能作为参数传递
 
-void print(int num) {
-	for (int i = 0;i < 3; i++) {
-		lock1.lock();
-		cout << char(65 + num);
-		lock1.unlock();
-		std::this_thread::sleep_for(std::chrono::seconds(1));
-	}
-}
-
-void test_thread(){
+void test_thread1(){
 	int n = 0;
 	foo f;
 	baz b;
@@ -92,23 +83,73 @@ void test_thread(){
 	std::thread t8(slow_increment, 1);
 	t7.join();
 	t8.join();
+}
 
+mutex m1;
+int input_num = 0;
+condition_variable cv;
+
+void print(int number, int num){
+	for (int i = 0; i < 3;i++) {
+		unique_lock<mutex> mlock(m1);
+		cv.wait(mlock, [&] {return number == input_num;});
+		cout << (char)(65 + number);
+		input_num++;
+		input_num = input_num % num;
+		mlock.unlock();
+		cv.notify_all();
+	}
+}
+
+void print1(int number, int num) {
+	int count = 0;
+	while(1) {
+		unique_lock<mutex> mlock(m1);
+		if (number == input_num) {
+			cout << (char)(65 + number);
+			input_num++;
+			count++;
+			input_num = input_num % num;
+		}
+		if (count == 3)
+			break;
+	}
+	/*错误写法：原因是自己一个线程会连续执行很多次拿锁放锁的操作，导致该线程过早结束；
+	上面的那种写法虽然答案正确，但是依然很容易造成死锁，最好是用条件变量
+	for(int i=0;i<3;i++){
+		unique_lock<mutex> mlock(m1);
+		if (number == input_num) {
+			cout << (char)(65 + number);
+			input_num++;
+			count++;
+			input_num = input_num % num;
+		}
+	}
+	*/
+}
+
+void test_thread2(){
 	/*****************多线程笔试题************************/
 	/**
 	num =3,则输出是ABCABCABC; num=4,则输出是ABCDABCDABCD
 	**/
+	/*****************************************************/
 	int num;
 	cin >> num;
 	thread *t = new thread[num];
-	
+
 	for (int j = 0;j < num;j++) {
-		t[j] = thread(print, j);
+		t[j] = thread(print1, j, num);
 	}
-	
+
 	for (int i = 0;i < num;i++) {
 		t[i].join();
 	}
 
-	cout << endl;
 	getchar();
+}
+
+void test_thread3() {
+	int num = thread::hardware_concurrency();  
+	cout << "当前电脑支持的线程数（核心数）："<<num << endl;
 }

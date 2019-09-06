@@ -82,10 +82,8 @@ int main() {
 	test_string();
 
 	cout << "***********************thread Ïß³ÌÀà****************" << endl;
-	test_thread();
+	test_thread2();
 
 	getchar();
 	return 0;
 }
-
-
