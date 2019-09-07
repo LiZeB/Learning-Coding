@@ -26,7 +26,7 @@ int main() {
 		cout << output[i] << endl;
 	}
 
-	cout << "***********各个基本内置类型的字节数******************" << endl;
+	cout << "***********各个基本内置类型的字节数*****************" << endl;
 	cout << "sizeof(int):" << sizeof(int) << endl;
 	cout << "sizeof(int *):" << sizeof(int *) << endl;
 	cout << "sizeof(double):" << sizeof(double) << endl;
@@ -67,21 +67,34 @@ int main() {
 	cout << "*************测试常量引用*****************************" << endl;
 	int b = 10;
 	const int &a = b;
-	cout << a << endl;
+	const int &c = a;
+	cout << a <<" "<<c<< endl;
 
-	cout << "*************************string***********************" << endl;
+	cout << "*************************string************************" << endl;
 	string s = " abc    ";
 	cout << s.substr(1) << endl;
+	string s1 = "1" + s;
+	cout << s1 << endl;
 
-	cout << "********************关联容器、文件流、字符流*********" << endl;
+	test_string1();
+	vector<int> array{1, 2, 3, 4};
+	const vector<int> &result = reverseArray(array);
+	for (auto iter : result) {
+		cout << iter << endl;
+	}
+	string src = "a中b国c人d民银行";
+	const string result2 = substrCN(src, 3);
+	cout << result2 << endl;
+
+	int a3[] = { 1,2,3,4,5,6,7,9 };
+	delete[] a3;
+
+	cout << "********************关联容器、文件流、字符流***********" << endl;
 	ifstream input_file("input_file.txt"), map_file("map_file.txt");
 	cout << input_file.is_open() << endl;
 	words_transform(map_file, input_file);
 
-	cout << "**********************string*************************" << endl;
-	test_string();
-
-	cout << "***********************thread 线程类****************" << endl;
+	cout << "***********************thread 线程类*****************" << endl;
 	test_thread2();
 
 	getchar();
