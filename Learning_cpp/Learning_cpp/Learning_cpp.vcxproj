@@ -125,12 +125,14 @@
     <ClCompile Include="container.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="my_thread.cpp" />
+    <ClCompile Include="oop.cpp" />
     <ClCompile Include="test_algorithm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="characters.h" />
     <ClInclude Include="container.h" />
     <ClInclude Include="my_thread.h" />
+    <ClInclude Include="oop.h" />
     <ClInclude Include="test_algorithm.h" />
   </ItemGroup>
   <ItemGroup>

@@ -2,6 +2,7 @@
 #include "container.cpp"
 #include "test_algorithm.cpp"
 #include "my_thread.cpp"
+#include "oop.cpp"
 
 int main() {
 	cout << "***********splict_string的代码*********************" << endl;
@@ -86,16 +87,17 @@ int main() {
 	const string result2 = substrCN(src, 3);
 	cout << result2 << endl;
 
-	int a3[] = { 1,2,3,4,5,6,7,9 };
-	delete[] a3;
-
 	cout << "********************关联容器、文件流、字符流***********" << endl;
 	ifstream input_file("input_file.txt"), map_file("map_file.txt");
 	cout << input_file.is_open() << endl;
 	words_transform(map_file, input_file);
 
-	cout << "***********************thread 线程类*****************" << endl;
+	cout << "***********************thread 线程类*******************" << endl;
 	test_thread2();
+	cout << endl;
+
+	cout << "***********************面向对象属性********************" << endl;
+	test_class_inherited();
 
 	getchar();
 	return 0;
