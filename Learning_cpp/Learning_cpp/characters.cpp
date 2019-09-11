@@ -118,7 +118,7 @@ const string& substrCN(const string &str, int len) {
 	len = 2 * len;
 	int count_len = 0;
 	vector<char> temp;
-
+	cout << str.length() << endl;
 	for (int i = 0; i < str.length(); i++) {
 		if (count_len >= len) {
 			break;

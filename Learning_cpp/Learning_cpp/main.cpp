@@ -3,6 +3,7 @@
 #include "test_algorithm.cpp"
 #include "my_thread.cpp"
 #include "oop.cpp"
+#include <typeinfo>
 
 int main() {
 	cout << "***********splict_string的代码*********************" << endl;
@@ -98,6 +99,14 @@ int main() {
 
 	cout << "***********************面向对象属性********************" << endl;
 	test_class_inherited();
+	test_class_memory();
+
+	cout << "***********************强制类型转换********************" << endl;
+	int x0 = 65;
+	float x1 = static_cast<float>(x0);
+	char x2 = static_cast<char>(x0);
+	cout << typeid(x1).name()<<" "<<x1<< endl;
+	cout << typeid(x2).name()<<" "<<x2<< endl;
 
 	getchar();
 	return 0;

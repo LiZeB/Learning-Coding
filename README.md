@@ -16,6 +16,7 @@
 	- 锁的概念：C++中锁有一个作用域，作用域内所有的资源都会被锁定，只能被一个线程使用。这些资源可以是变量、输入输出流;
 - 面向对象的特性：
 	- 基类的成员访问权限，派生类的继承权限；
+- 强制类型转换：static_cast、dynamic_cast、reinterpret_cast、const_cast【较难】
 	
 ###  2. DataStructure
 常见数据结构的实现

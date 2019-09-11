@@ -20,3 +20,11 @@ public:
 public:
 	int _b1 = _a1;
 };
+
+class C {
+public:
+	//char c;
+	int a;
+	double b;
+	virtual ~C(){}
+};
