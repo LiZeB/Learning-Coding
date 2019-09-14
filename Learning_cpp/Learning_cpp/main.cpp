@@ -6,6 +6,16 @@
 #include <typeinfo>
 
 int main() {
+	cout << "***********一道比较无聊的笔试题********************" << endl;
+	int i = 3;
+	do {
+		if (i++ == 15)       //这里写成++i就是打印无穷个*，改成i++就是打印2个
+			break;
+		if (i++ % 3 == 0)
+			printf("*", i);
+	} while (1);
+	cout << endl;
+
 	cout << "***********splict_string的代码*********************" << endl;
 	char *input = "Hello World, my name is LiZeBin";     
     vector<string> output;
@@ -31,10 +41,16 @@ int main() {
 	cout << "***********各个基本内置类型的字节数*****************" << endl;
 	cout << "sizeof(int):" << sizeof(int) << endl;
 	cout << "sizeof(int *):" << sizeof(int *) << endl;
+	cout << "sizeof(long):" << sizeof(long) << endl;
+	cout << "sizeof(long long):" << sizeof(long long) << endl;
 	cout << "sizeof(double):" << sizeof(double) << endl;
 	cout << "sizeof(double *):" << sizeof(double *) << endl;
 	cout << "sizeof(char):"<<sizeof(char) << endl;
 	cout << "sizeof(char *):"<<sizeof(char *) << endl;
+	cout << "sizeof(float):" << sizeof(float) << endl;
+	cout << "sizeof(float *):" << sizeof(float *) << endl;
+
+
 	int a1[] = { 0, 1, 2, 3, 4, 5 };
 	char *a2 = "012345";
 	cout << "sizeof(a1):" << sizeof(a1) << endl;
@@ -100,6 +116,8 @@ int main() {
 	cout << "***********************面向对象属性********************" << endl;
 	test_class_inherited();
 	test_class_memory();
+	test_class_construction();
+	test_class_static();
 
 	cout << "***********************强制类型转换********************" << endl;
 	int x0 = 65;

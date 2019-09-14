@@ -10,5 +10,14 @@ void test_class_inherited() {
 }
 
 void test_class_memory() {
-	cout << sizeof(C) << endl;
+	cout <<"ÄÚ´æ¶ÔÆë£º"<<"sizeof(C):"<< sizeof(C) << endl;
+}
+
+void test_class_construction() {
+	D d1(5);
+}
+
+void test_class_static() {
+	E e;
+	e.func2();
 }

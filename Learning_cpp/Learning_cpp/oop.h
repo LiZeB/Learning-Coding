@@ -23,8 +23,28 @@ public:
 
 class C {
 public:
-	//char c;
+	static int d;
+	char c;
 	int a;
-	double b;
-	virtual ~C(){}
+	char e;
+	float b;
+	C();
+	~C();
+};
+
+class D {
+public:
+	D() { a(); }
+	D(int b) { cout << "b=" << b; D();}
+	~D() {}
+	void a() { cout << "This is a function!" << endl; }
+};
+
+void func3() { cout << "This is function_3" << endl; }
+
+class E {
+public:
+	E() { cout << "This is construction function."<<endl; }
+	static void func1() { E();func3();}
+	void func2() { cout << "This is function_2."; func1(); }
 };
