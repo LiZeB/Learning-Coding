@@ -1,4 +1,9 @@
 #include <iostream>
+#include <thread>
+#include <mutex>
+#include <future>
+#include <utility>
+
 
 using namespace std;
 
@@ -42,9 +47,35 @@ public:
 
 void func3() { cout << "This is function_3" << endl; }
 
+/********单例模式中的饿汉实现方法***************/
 class E {
 public:
-	E() { cout << "This is construction function."<<endl; }
-	static void func1() { E();func3();}
-	void func2() { cout << "This is function_2."; func1(); }
+	void func1() { func3();}
+	static E* getInstance() { return instance; }
+private:
+	E() {}
+	static E *instance;
 };
+
+E* E::instance = new E();
+
+/********单例模式中的懒汉实现方法*************/
+mutex m2;
+class F {
+public:
+	void func1() { func3(); }
+	static F* getInstance() {
+		if (instance == NULL) {
+			unique_lock<mutex> my_lock(m2);
+			if(instance==NULL)
+				instance = new F();
+		}
+		cout << instance << endl;
+		return instance;
+	}
+private:
+	F() {}
+	static F *instance;
+};
+
+F* F::instance = NULL;
