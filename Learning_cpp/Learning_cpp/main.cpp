@@ -117,7 +117,8 @@ int main() {
 	test_class_inherited();
 	test_class_memory();
 	test_class_construction();
-	test_class_static();
+	test_class_Singleton();
+	test_class_SimpleFactory();
 
 	cout << "***********************强制类型转换********************" << endl;
 	int x0 = 65;

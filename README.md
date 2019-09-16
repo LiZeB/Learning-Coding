@@ -19,8 +19,10 @@
 	- 类的内存分配，成员内存对齐规则；
 	- 类的构造函数，静态函数；
 - 强制类型转换：static_cast、dynamic_cast、reinterpret_cast、const_cast【较难】
+- 自定义异常和异常处理；
 - 设计模式：
-    - [x] 单例模式；
+    - [x] 单例模式：饿汉方式和懒汉方式；
+	- [x] 简单工厂模式；
 	
 ###  2. DataStructure
 常见数据结构的实现

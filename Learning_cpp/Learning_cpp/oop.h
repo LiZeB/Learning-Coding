@@ -1,8 +1,8 @@
 #include <iostream>
 #include <thread>
 #include <mutex>
-#include <future>
-#include <utility>
+#include <exception>
+#include <string>
 
 
 using namespace std;
@@ -79,3 +79,88 @@ private:
 };
 
 F* F::instance = NULL;
+
+/******************简单工厂模式************************/
+class Geometry {
+public:
+	static Geometry* getInstance(string arg);
+public:
+	virtual void draw() {}
+	virtual void erase() {}
+	virtual float compute_area() { return (float)(NULL); }
+};
+
+class Circle :public Geometry {
+public:
+	Circle(float radius=5):radius(radius) { cout << "This is a Circle"<<endl; };
+	void draw() { cout << "Drawing a Circle" << endl; }
+	void erase() { cout << "Erasing a Circle" << endl; }
+	float compute_area() { return 3.14*radius*radius; }
+private:
+	float radius;
+};
+
+class Square :public Geometry {
+public:
+	Square(float length = 5) :length(length) { cout << "This is a Square" << endl; }
+	void draw() { cout << "Drawing a Square" << endl; }
+	void erase() { cout << "Easing a Square" << endl; }
+	float compute_area() { return length*length; }
+private:
+	float length;
+};
+
+class Triangle :public Geometry {
+public:
+	Triangle(float length = 5, float height=3) : length(length), height(height) { cout << "This is a Triangle" << endl; }
+	void draw() { cout << "Drawing a Triangle" << endl; }
+	void erase() { cout << "Easing a Triangle" << endl; }
+	float compute_area() { return 0.5*length*height; }
+private:
+	float length;
+	float height;
+};
+
+//自定义异常
+class UnSupportedShapeException : public exception {
+public:
+	const char * what() const throw ()
+	{
+		return "UnSupportedShapeException";
+	}
+};
+
+Geometry* Geometry::getInstance(string arg) {
+	if (arg == "circle") {
+		return new Circle();
+	}
+	else if (arg == "square") {
+		return new Square();
+	}
+	else if (arg == "triangle") {
+		return new Triangle();
+	}
+	else {
+		try {
+			throw UnSupportedShapeException();   //异常处理代码一定是try...catch形式，如果只抛异常不处理会产生未知错误
+		}
+		catch (UnSupportedShapeException &e) {
+			cout << e.what() << endl;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

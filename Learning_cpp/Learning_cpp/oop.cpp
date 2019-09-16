@@ -23,7 +23,7 @@ void create_class() {
 	f1->func1();
 }
 
-void test_class_static() {
+void test_class_Singleton() {
 	E *e1 = E::getInstance();
 	E *e2 = E::getInstance();
 	E *e3 = E::getInstance();
@@ -40,4 +40,12 @@ void test_class_static() {
 	for (int i = 0; i < 4; i++) {
 		t2[i].join();
 	}
+}
+
+void test_class_SimpleFactory() {
+	Geometry *g1 = Geometry::getInstance("circle1");
+	Geometry *g2 = Geometry::getInstance("square");
+	Geometry *g3 = Geometry::getInstance("triangle");
+	float area = g2->compute_area();
+	cout << area << endl;
 }
