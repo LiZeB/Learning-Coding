@@ -15,7 +15,7 @@ void linkedBinaryTree<T>::makeTree(const T& element,
 	 left, right, and this must be different trees.
 	 create combined tree
 	**************************************************/
-	root = new binaryTreeNode<T>(element, left.root, right.root);
+	root = new binaryTreenode<T>(element, left.root, right.root);
 	treeSize = left.treeSize + right.treeSize + 1;
 
 	left.root = right.root = NULL;   //仔细体会这一行的意义
@@ -23,7 +23,7 @@ void linkedBinaryTree<T>::makeTree(const T& element,
 }
 
 template<class E>
-void linkedBinaryTree<E>::preOrder(binaryTreeNode<E> *t)
+void linkedBinaryTree<E>::preOrder(binaryTreenode<E> *t)
 {
 	/***********前序遍历*************/
 	if (t != NULL)
@@ -35,7 +35,7 @@ void linkedBinaryTree<E>::preOrder(binaryTreeNode<E> *t)
 }
 
 template<class E>
-void linkedBinaryTree<E>::inOrder(binaryTreeNode<E> *t)
+void linkedBinaryTree<E>::inOrder(binaryTreenode<E> *t)
 {
 	/*********中序遍历******************/
 	if (t != NULL)
@@ -47,7 +47,7 @@ void linkedBinaryTree<E>::inOrder(binaryTreeNode<E> *t)
 }
 
 template<class E>
-void linkedBinaryTree<E>::postOrder(binaryTreeNode<E> *t)
+void linkedBinaryTree<E>::postOrder(binaryTreenode<E> *t)
 {
 	/*************后序遍历*****************/
 	if (t != NULL)
@@ -59,14 +59,14 @@ void linkedBinaryTree<E>::postOrder(binaryTreeNode<E> *t)
 }
 
 template<class T>
-void linkedBinaryTree<T>::levelOrder(binaryTreeNode<T> *t)
+void linkedBinaryTree<T>::levelOrder(binaryTreenode<T> *t)
 {
 	/***********************************************
 	层次遍历:这里写了两种层次遍历的方式，
 	第二种方式更方便理解，也更适宜在层次遍历时，
 	对同一层元素施加扩展操作
 	***********************************************/
-	queue<binaryTreeNode<T> *> q1;
+	queue<binaryTreenode<T>* > q1;
 	/*while (t != NULL) {
 		linkedBinaryTree<T>::visit(t);
 		if(t->leftChild != NULL)
@@ -82,7 +82,7 @@ void linkedBinaryTree<T>::levelOrder(binaryTreeNode<T> *t)
 		}
 	}*/
 	q1.push(t);
-	binaryTreeNode<T> *t1;
+	binaryTreenode<T> *t1;
 	while (!q1.empty()) {
 		int width = q1.size();
 		for (int i = 0; i < width; i++) {
@@ -96,9 +96,8 @@ void linkedBinaryTree<T>::levelOrder(binaryTreeNode<T> *t)
 
 }
 
-
 template<class T>
-int linkedBinaryTree<T>::height(binaryTreeNode<T> *t) const 
+int linkedBinaryTree<T>::height(binaryTreenode<T> *t) const 
 {
 	/*****求根节点为t的二叉树的高度******/
 	if (t == NULL)
@@ -120,7 +119,7 @@ pair<K, E>* binarySearchTree<K, E>::find(K& theKey) const
 	p starts at the root and moves through
 	the tree looking for an element with key theKey
 	***********************************/
-	binaryTreeNode<pair<K, E> > *p = root;
+	binaryTreenode<pair<K, E> > *p = root;
 	while (p != NULL) {
 		if (theKey < p->element.first)
 			p = p->leftChild;
@@ -142,7 +141,7 @@ void binarySearchTree<K, E>::insert(const pair<K, E>& thePair)
 	pair, if any, with same key.
 	find place to insert
 	**********************************************/
-	binaryTreeNode<pair<K, E> > *p = root, *pp = NULL;
+	binaryTreenode<pair<K, E> > *p = root, *pp = NULL;
 	while (p != NULL)
 	{
 		pp = p;
@@ -158,8 +157,8 @@ void binarySearchTree<K, E>::insert(const pair<K, E>& thePair)
 			}
 	}
 
-	binaryTreeNode<pair<K, E> > *newNode
-		= new binaryTreeNode<pair<K, E> >(thePair);
+	binaryTreenode<pair<K, E> > *newNode
+		= new binaryTreenode<pair<K, E> >(thePair);
 	if (root != NULL)
 		if (thePair.first < pp->element.first)
 			pp->leftChild = newNode;
@@ -173,7 +172,7 @@ void binarySearchTree<K, E>::insert(const pair<K, E>& thePair)
 template<class K, class E>
 void binarySearchTree<K, E>::erase(K& theKey)
 {
-	binaryTreeNode<pair<K, E> > *p = root, *pp = NULL;
+	binaryTreenode<pair<K, E> > *p = root, *pp = NULL;
     // 先找到关键字theKey应该出现的位置
 	while (p != NULL && p->element.first != theKey)
 	{
@@ -189,7 +188,7 @@ void binarySearchTree<K, E>::erase(K& theKey)
 	//树中存在关键字为theKey的元素，当这个元素的左右子树不为空时
 	if (p->leftChild != NULL && p->rightChild != NULL)
 	{
-		binaryTreeNode<pair<K, E> > *s = p->leftChild, *ps = p;
+		binaryTreenode<pair<K, E> > *s = p->leftChild, *ps = p;
 		//要把左子树的右子树放到上面去
 		while (s->rightChild != NULL)
 		{
@@ -198,8 +197,8 @@ void binarySearchTree<K, E>::erase(K& theKey)
 		}
 
 
-		binaryTreeNode<pair<K, E> > *q =
-			new binaryTreeNode<pair<K, E> >
+		binaryTreenode<pair<K, E> > *q =
+			new binaryTreenode<pair<K, E> >
 			(s->element, p->leftChild, p->rightChild);
 		//要把左子树的右子树放到上面去，又分为放的是顶点位置还是非顶点位置
 		if (pp == NULL)
@@ -215,7 +214,7 @@ void binarySearchTree<K, E>::erase(K& theKey)
 		p = s;
 	}
 	//如何处理被删除节点的左子树
-	binaryTreeNode<pair<K, E> > *c;
+	binaryTreenode<pair<K, E> > *c;
 	if (p->leftChild != NULL)
 		c = p->leftChild;
 	else

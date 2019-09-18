@@ -76,6 +76,7 @@ int main() {
 	cout << "Levelorder sequence is ";
 	y.levelOrderOutput();
 
+
 	cout << "****************²âÊÔ¶ş²æËÑË÷Ê÷*******************" << endl;
 	binarySearchTree<int, char> y1;
 	y1.insert(pair<int, char>(1, 'a'));
@@ -139,3 +140,4 @@ int main() {
 	getchar();
 	return 0;
 }
+

@@ -16,15 +16,15 @@ private:
 };
 
 template<class T>
-struct binaryTreeNode {
+struct binaryTreenode {
 	T element;
-	binaryTreeNode<T> *leftChild, *rightChild;
-	binaryTreeNode() { leftChild = rightChild = NULL; }
-	binaryTreeNode(const T theElement) {
+	binaryTreenode<T> *leftChild, *rightChild;
+	binaryTreenode() { leftChild = rightChild = NULL; }
+	binaryTreenode(const T theElement) {
 		element = theElement;
 		leftChild = rightChild = NULL;
 	}
-	binaryTreeNode(const T theElement, binaryTreeNode *theLeftChild, binaryTreeNode *theRightChild) {
+	binaryTreenode(const T theElement, binaryTreenode *theLeftChild, binaryTreenode *theRightChild) {
 		element = theElement;
 		leftChild = theLeftChild;
 		rightChild = theRightChild;
@@ -32,9 +32,9 @@ struct binaryTreeNode {
 };
 
 template<class T>
-class binaryTree {
+class binarytree {
 public:
-	virtual ~binaryTree() {}
+	virtual ~binarytree() {}
 	virtual bool empty() const = 0;
 	virtual int size() const = 0;
 	virtual void preOrder(void (*) (T *)) = 0;
@@ -46,7 +46,7 @@ public:
 
 
 template<class T>
-class linkedBinaryTree : public binaryTree<binaryTreeNode<T> >
+class linkedBinaryTree : public binarytree<binaryTreenode<T> >
 {
 public:
 	linkedBinaryTree() { root = NULL; treeSize = 0; }
@@ -55,20 +55,20 @@ public:
 	int size() const { return treeSize; }
 	T* rootElement() const;
 	void makeTree(const T& element, linkedBinaryTree<T>&, linkedBinaryTree<T>&);
-	void preOrder(void(*theVisit)(binaryTreeNode<T>*))
+	void preOrder(void(*theVisit)(binaryTreenode<T>*))
 	{
 		visit = theVisit; preOrder(root);
 	}
-	void inOrder(void(*theVisit)(binaryTreeNode<T>*))
+	void inOrder(void(*theVisit)(binaryTreenode<T>*))
 	{
 		visit = theVisit; inOrder(root);
 	}
-	void postOrder(void(*theVisit)(binaryTreeNode<T>*))
+	void postOrder(void(*theVisit)(binaryTreenode<T>*))
 	{
 		visit = theVisit; postOrder(root);
 	}
 
-	void levelOrder(void(*theVisit)(binaryTreeNode<T> *)) {
+	void levelOrder(void(*theVisit)(binaryTreenode<T> *)) {
 		visit = theVisit; levelOrder(root);
 	}
 	void preOrderOutput() { preOrder(output); cout << endl; }
@@ -85,36 +85,36 @@ public:
 	int height() const { return height(root); }
 
 protected:
-	binaryTreeNode<T> *root;                // pointer to root
+	binaryTreenode<T> *root;                // pointer to root
 	int treeSize;                           // number of nodes in tree
-	static void (*visit)(binaryTreeNode<T>*);      // visit只是一个函数指针
+	static void (*visit)(binaryTreenode<T>*);      // visit只是一个函数指针
 	static int count;         // used to count nodes in a subtree
-	static void preOrder(binaryTreeNode<T> *t);
-	static void inOrder(binaryTreeNode<T> *t);
-	static void postOrder(binaryTreeNode<T> *t);
-	static void levelOrder(binaryTreeNode<T> *t);
+	static void preOrder(binaryTreenode<T> *t);
+	static void inOrder(binaryTreenode<T> *t);
+	static void postOrder(binaryTreenode<T> *t);
+	static void levelOrder(binaryTreenode<T> *t);
 
-	static void countNodes(binaryTreeNode<T> *t)
+	static void countNodes(binaryTreenode<T> *t)
 	{
 		visit = addToCount;
 		count = 0;
 		preOrder(t);
 	}
-	static void dispose(binaryTreeNode<T> *t) { delete t; }
-	static void output(binaryTreeNode<T> *t)
+	static void dispose(binaryTreenode<T> *t) { delete t; }
+	static void output(binaryTreenode<T> *t)
 	{
 		cout << t->element << ' ';
 	}
-	static void addToCount(binaryTreeNode<T> *t)
+	static void addToCount(binaryTreenode<T> *t)
 	{
 		count++;
 	}
-	static int height(binaryTreeNode<T> *t);
+	static int height(binaryTreenode<T> *t);
 };
 
 template<class T>
-void(*linkedBinaryTree<T>::visit)(binaryTreeNode<int>*);  //仔细琢磨这一行的作用
-void(*linkedBinaryTree<pair<int, char> >::visit)(binaryTreeNode<pair<int, char> >*);
+void(*linkedBinaryTree<T>::visit)(binaryTreenode<int>*);  //仔细琢磨这一行的作用
+void(*linkedBinaryTree<pair<int, char> >::visit)(binaryTreenode<pair<int, char> >*);
 
 template<class K, class E>
 class binarySearchTree : public linkedBinaryTree<pair<K, E>>

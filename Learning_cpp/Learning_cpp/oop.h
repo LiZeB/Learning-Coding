@@ -151,7 +151,7 @@ Geometry* Geometry::getInstance(string arg) {
 	}
 }
 
-
+/*********************工厂方法模式***************************/
 class Image{
 public:
 	Image(int height, int width) :height(height), width(width){}
