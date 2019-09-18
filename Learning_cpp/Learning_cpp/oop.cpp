@@ -10,6 +10,7 @@ void test_class_inherited() {
 }
 
 void test_class_memory() {
+	cout << "普通成员函数的函数表占用内存：" << sizeof(D) << endl;
 	cout <<"内存对齐："<<"sizeof(C):"<< sizeof(C) << endl;
 }
 
@@ -48,4 +49,13 @@ void test_class_SimpleFactory() {
 	Geometry *g3 = Geometry::getInstance("triangle");
 	float area = g2->compute_area();
 	cout << area << endl;
+}
+
+void test_class_Factory() {
+	Loader *l1 = new Gif_Loader();
+	Image *m1 = l1->read();
+	Loader *l2 = new Jpg_Loader();
+	Image *m2 = l2->read();
+	m1->write();
+	m2->write();
 }

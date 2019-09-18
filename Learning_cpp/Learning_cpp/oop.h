@@ -37,7 +37,8 @@ public:
 	~C();
 };
 
-class D {
+class D1 {};
+class D :public D1{
 public:
 	D() { a(); }
 	D(int b) { cout << "b=" << b; D();}
@@ -142,7 +143,7 @@ Geometry* Geometry::getInstance(string arg) {
 	}
 	else {
 		try {
-			throw UnSupportedShapeException();   //异常处理代码一定是try...catch形式，如果只抛异常不处理会产生未知错误
+			throw UnSupportedShapeException();   //异常处理代码一定是try...catch形式，如果只抛异常不处理会产生未定义错误
 		}
 		catch (UnSupportedShapeException &e) {
 			cout << e.what() << endl;
@@ -151,6 +152,44 @@ Geometry* Geometry::getInstance(string arg) {
 }
 
 
+class Image{
+public:
+	Image(int height, int width) :height(height), width(width){}
+	virtual void write() { cout << "Writing a Image" << endl; }
+public:
+	int height, width;
+};
+
+class Gif_image :public Image {
+public:
+	Gif_image(int height = 500, int width = 500) :Image(height, width) {}
+	void write() { cout << "Writing a Gif Image" << endl; }
+};
+
+class Jpg_image :public Image {
+public:
+	Jpg_image(int height = 500, int width = 500) :Image(height, width) {}
+	void read() { cout << "Reading a Jpg Image" << endl; }
+	void write() { cout << "Writing a Jpg Image" << endl; }
+};
+
+class Loader {
+public:
+	Loader() {}
+	virtual Image* read() { cout << "Reading a Image" << endl; return (Image*)(NULL); }
+};
+
+class Jpg_Loader :public Loader {
+public:
+	Jpg_Loader(){}
+	Image* read() { cout << "Reading a Jpg Image" << endl; Jpg_image *result = new Jpg_image(); return result; }
+};
+
+class Gif_Loader :public Loader {
+public:
+	Gif_Loader(){}
+	Image* read() { cout << "Reading a Gif Image" << endl; Gif_image *result = new Gif_image(); return result; }
+};
 
 
 
