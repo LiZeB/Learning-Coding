@@ -38,3 +38,5 @@ protected:
 	chainNode<T> *firstNode;
 	int listSize;
 };
+
+void test_forward_list();

@@ -30,7 +30,7 @@
 - 单向链表；
 - 链表的排序；
 - 栈；
-- linkedBinaryTree.cpp: 二叉树；
+- linkedBinaryTree.cpp: 二叉树和二叉查找树；
 - 二叉搜索树；
 - 平衡二叉搜索树（即AVL树）
 - 哈希表(散列表)；

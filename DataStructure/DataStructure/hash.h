@@ -91,4 +91,47 @@ protected:
 	int dSize;    //元素个数             
 	int divisor;  //哈希表长度
 };
+
+void test_hash() {
+	//针对<int, int>类型
+	hashChains<int, int> z1;
+	z1.insert({ 1,1 });
+
+	pair<int, int> p;
+	p.first = 2; p.second = 10;
+	z1.insert(p);
+	p.first = 10; p.second = 50;
+	z1.insert(p);
+	p.first = 24; p.second = 120;
+	z1.insert(p);
+	p.first = 32; p.second = 160;
+	z1.insert(p);
+	p.first = 3; p.second = 15;
+	z1.insert(p);
+	p.first = 12; p.second = 60;
+	z1.insert(p);
+	p.first = 23; p.second = 90;
+	z1.insert(p);
+	p.first = 34; p.second = 120;
+	z1.insert(p);
+	z1.output(cout);
+	cout << "哈希表中元素的个数：" << z1.size() << endl;
+	int key = 12;
+	p = z1.find(key);
+	cout << "关键字:" << key << p.first << " " << p.second << endl;
+	z1.erase(1);
+	cout << "删除关键字为1的元素：" << endl;
+	z1.output(cout);
+
+	//针对<int, string>类型
+	hashChains<int, string> x1;
+	x1.insert({ 15, "LiZeBin" });
+	x1.insert({ 21, "DongZan" });
+	x1.insert({ 24, "LiuYuanDu" });
+	cout << "删除之前是：" << endl;
+	x1.output(cout);
+	cout << "删除之后是：" << endl;
+	x1.erase(24);
+	x1.output(cout);
+}
 #endif

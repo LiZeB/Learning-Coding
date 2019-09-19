@@ -11,9 +11,7 @@ void linkedBinaryTree<T>::makeTree(const T& element,
 	linkedBinaryTree<T>& left, linkedBinaryTree<T>& right)
 {
 	/*************************************************
-	 combine left, right, and element to make new tree.
-	 left, right, and this must be different trees.
-	 create combined tree
+	根据左右两棵子树构建一棵新树
 	**************************************************/
 	root = new binaryTreenode<T>(element, left.root, right.root);
 	treeSize = left.treeSize + right.treeSize + 1;
@@ -25,7 +23,6 @@ void linkedBinaryTree<T>::makeTree(const T& element,
 template<class E>
 void linkedBinaryTree<E>::preOrder(binaryTreenode<E> *t)
 {
-	/***********前序遍历*************/
 	if (t != NULL)
 	{
 		linkedBinaryTree<E>::visit(t);
@@ -37,7 +34,6 @@ void linkedBinaryTree<E>::preOrder(binaryTreenode<E> *t)
 template<class E>
 void linkedBinaryTree<E>::inOrder(binaryTreenode<E> *t)
 {
-	/*********中序遍历******************/
 	if (t != NULL)
 	{
 		inOrder(t->leftChild);
@@ -49,7 +45,6 @@ void linkedBinaryTree<E>::inOrder(binaryTreenode<E> *t)
 template<class E>
 void linkedBinaryTree<E>::postOrder(binaryTreenode<E> *t)
 {
-	/*************后序遍历*****************/
 	if (t != NULL)
 	{
 		postOrder(t->leftChild);
@@ -61,27 +56,9 @@ void linkedBinaryTree<E>::postOrder(binaryTreenode<E> *t)
 template<class T>
 void linkedBinaryTree<T>::levelOrder(binaryTreenode<T> *t)
 {
-	/***********************************************
-	层次遍历:这里写了两种层次遍历的方式，
-	第二种方式更方便理解，也更适宜在层次遍历时，
-	对同一层元素施加扩展操作
-	***********************************************/
 	queue<binaryTreenode<T>* > q1;
-	/*while (t != NULL) {
-		linkedBinaryTree<T>::visit(t);
-		if(t->leftChild != NULL)
-			q1.push(t->leftChild);
-		if(t->rightChild != NULL)
-			q1.push(t->rightChild);
-		if (!q1.empty()) {
-			t = q1.front();
-			q1.pop();
-		}
-		else {
-			return;
-		}
-	}*/
-	q1.push(t);
+	if(t != NULL)
+		q1.push(t);
 	binaryTreenode<T> *t1;
 	while (!q1.empty()) {
 		int width = q1.size();
@@ -99,11 +76,14 @@ void linkedBinaryTree<T>::levelOrder(binaryTreenode<T> *t)
 template<class T>
 int linkedBinaryTree<T>::height(binaryTreenode<T> *t) const 
 {
-	/*****求根节点为t的二叉树的高度******/
+	/********************************************
+	求根节点为t的二叉树的高度：这里采用的是递归
+	的方法；
+	*********************************************/
 	if (t == NULL)
-		return 0;                    // empty tree
-	int hl = height(t->leftChild);  // height of left
-	int hr = height(t->rightChild); // height of right
+		return 0;                    
+	int hl = height(t->leftChild);  
+	int hr = height(t->rightChild); 
 	if (hl > hr)
 		return ++hl;
 	else
@@ -113,13 +93,10 @@ int linkedBinaryTree<T>::height(binaryTreenode<T> *t) const
 template<class K, class E>
 pair<K, E>* binarySearchTree<K, E>::find(K& theKey) const
 {
-	/*********************************
-	Return pointer to matching pair.
-	Return NULL if no matching pair.
-	p starts at the root and moves through
-	the tree looking for an element with key theKey
-	***********************************/
-	binaryTreenode<pair<K, E> > *p = root;
+	/****************************************
+	二叉树查找：theKey代表要查找节点的关键字
+	*****************************************/
+	binaryTreenode<pair<K, E>> *p = root;
 	while (p != NULL) {
 		if (theKey < p->element.first)
 			p = p->leftChild;
@@ -137,9 +114,7 @@ template<class K, class E>
 void binarySearchTree<K, E>::insert(const pair<K, E>& thePair)
 { 
 	/*********************************************
-	Insert thePair into the tree. Overwrite existing
-	pair, if any, with same key.
-	find place to insert
+	二叉查找树的插入
 	**********************************************/
 	binaryTreenode<pair<K, E> > *p = root, *pp = NULL;
 	while (p != NULL)
@@ -237,4 +212,49 @@ ostream& operator<<(ostream& out, const pair<K, E>& x)
 {
 	out << x.first << ' ' << x.second; 
 	return out;
+}
+
+void test_linkedBinaryTree() {
+	linkedBinaryTree<int> a, x, y, z;
+	y.makeTree(1, a, a);
+	z.makeTree(2, a, a);
+	x.makeTree(3, y, z);
+	y.makeTree(4, x, a);
+	cout << "节点个数 = ";
+	cout << y.size() << endl;
+	cout << "height = ";
+	cout << y.height() << endl;
+	cout << "前序遍历： ";
+	y.preOrder(output);
+	cout << endl;
+	cout << "中序遍历： ";
+	y.inOrder(output);
+	cout << endl;
+	cout << "后序遍历： ";
+	y.postOrder(output);
+	cout << endl;
+	cout << "层次遍历： ";
+	y.levelOrder(output);
+	cout << endl;
+	cout << "删除二叉树";
+	y.erase();
+	cout <<endl;
+}
+
+void test_binarySearchTree() {
+	binarySearchTree<int, char> y1;
+	y1.insert(pair<int, char>(1, 'a'));
+	y1.insert(pair<int, char>(6, 'c'));
+	y1.insert(pair<int, char>(4, 'b'));
+	y1.insert(pair<int, char>(8, 'd'));
+	y1.insert(pair<int, char>(7, 'f'));
+	cout << "Tree size is " << y1.size() << endl;
+	y1.ascend();
+	cout << endl;
+
+	int a_1 = 4;
+	y1.erase(a_1);
+	cout << "Tree size is " << y1.size() << endl;
+	y1.ascend();
+	cout << endl;
 }

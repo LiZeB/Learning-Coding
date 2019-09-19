@@ -58,3 +58,17 @@ private:
 	int stackSize;  //栈中元素个数
 };
 
+void test_stack() {
+	linkedStack<int> stack1;
+
+	for (int j = 0; j < 10; j++) {
+		stack1.push(j);
+	}
+	stack1.push(100);
+	cout << "栈的长度：" << stack1.size() << endl;
+	while (!stack1.empty()) {
+		cout << stack1.top() << " ";
+		stack1.pop();
+	}
+	cout << endl;
+}
