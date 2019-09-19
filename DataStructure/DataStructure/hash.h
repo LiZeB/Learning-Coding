@@ -16,7 +16,7 @@ class hashChains
 	/**************************************************************
 	哈希表：这里只实现了除留余数法构造哈希函数（只针对整数关键字）、分离链接法解决冲突；
 	因为这种组合比较经典；分离链接法解决冲突和探测法解决冲突两种实现难度上差不多。
-	在实际种如何构造哈希函数，使元素在整个哈希表种分布均匀是一个影响哈希表性能的很重要的因素。
+	在实际中如何构造哈希函数，使元素在整个哈希表种分布均匀是影响哈希表性能的很重要因素。
 	另外哈希表的长度最好取为质数。
 	哈希表算法的优点是：查找效率高，时间复杂度是O(N),当然前提是在哈希表中分布均匀
 	****************************************************************/
@@ -24,7 +24,6 @@ public:
 	hashChains(int theDivisor = 11){
 		divisor = theDivisor;
 		dSize = 0;
-
 		table = new list<pair<const K, E>>[divisor];
 	}
 
@@ -64,10 +63,10 @@ public:
 	void output(ostream& out) const{
 		for (int i = 0; i < divisor; i++)
 			if (table[i].size() == 0)
-				cout << "NULL" << endl;
+				cout << endl;
 			else {
 				for (auto element : table[i]) {
-					cout << element.first << " " << element.second << " ";
+					cout << "("<<element.first << "," << element.second << ") ";
 				}
 				/*auto iter = table[i].begin();      //这里只是为了测试advance的用法，才写的，但是不能正确运行，原因还不清楚
 				for (int i = 0;i < table[i].size()-1;i++) {
@@ -118,7 +117,7 @@ void test_hash() {
 	cout << "哈希表中元素的个数：" << z1.size() << endl;
 	int key = 12;
 	p = z1.find(key);
-	cout << "关键字:" << key << p.first << " " << p.second << endl;
+	cout << "关键字:" << key << " ("<<p.first << "," << p.second<<")" << endl;
 	z1.erase(1);
 	cout << "删除关键字为1的元素：" << endl;
 	z1.output(cout);

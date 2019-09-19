@@ -1,7 +1,7 @@
 #include "graph.h"
 
 void test_graph() {
-	cout << "***********测试邻接矩阵表示的图*****************" << endl;
+	cout << "邻接矩阵表示的图" << endl;
 	adjacencyWDigraph<int> g(4);
 	cout << "Number of Vertices = " << g.numberOfVertices() << endl;
 	cout << "Number of Edges = " << g.numberOfEdges() << endl;

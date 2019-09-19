@@ -14,8 +14,7 @@ void operator <<(ostream &out, vector<T> &v) {
 	cout << endl;
 }
 
-
-
+//定义weightedEdge，代表有权边
 template <class T>
 class weightedEdge{
 public:
@@ -28,8 +27,7 @@ public:
 	int vertex2() const { return v2; }
 	T weight() const { return w; }
 	operator T() const { return w; }
-	void output(ostream& out) const
-	{
+	void output(ostream& out) const{
 		out << "(" << v1 << ", " << v2 << ", " << w << ")";
 	}
 public:
@@ -40,9 +38,9 @@ private:
 };
 
 template <class T>
-ostream& operator<<(ostream& out, const weightedEdge<T>& x)
-{
-	x.output(out); return out;
+ostream& operator<<(ostream& out, const weightedEdge<T>& x){
+	x.output(out);
+	return out;
 }
 
 template<class T>
@@ -53,6 +51,7 @@ public:
 	virtual int next(T&) = 0;
 };
 
+/**********定义一个图的抽象类***********/
 template<class T>
 class graph {
 public:
@@ -105,7 +104,7 @@ public:
 	}
 
 	~adjacencyWDigraph() {
-		for (int i = 1; i <= n;i++) {      //一开始这个地方写成i=0,报delete一个不是new出来的内存的错误
+		for (int i = 1; i <= n;i++) {      //一开始这个地方写成i=0,产生delete一个不是new出来的内存的错误
 			delete a[i];
 		}
 		delete a;
@@ -137,9 +136,13 @@ public:
 			cout <<"插入的边不正确！" << s.str();
 		}
 
-		if (a[v1][v2] == noEdge)  
+		if (a[v1][v2] == noEdge) {
 			e++;
-		a[v1][v2] = theEdge->weight();
+			a[v1][v2] = theEdge->weight();
+		}
+		else {
+			a[v1][v2] = theEdge->weight();
+		}
 	}
 
 	void eraseEdge(int i, int j){
@@ -150,17 +153,20 @@ public:
 		}
 	}
 
-	void checkVertex(int theVertex) const{
+	bool checkVertex(int theVertex) const{
 		if (theVertex < 1 || theVertex > n)
 		{
 			ostringstream s;
 			s << "no vertex " << theVertex;
 			cout<<"输入的顶点不合法！"<<s.str();
+			return false;
 		}
+		return true;
 	}
 
 	int outDegree(int theVertex) const{
-		checkVertex(theVertex);
+		if(checkVertex(theVertex))
+			return 0;
 
 		int sum = 0;
 		for (int j = 1; j <= n; j++)
@@ -171,7 +177,8 @@ public:
 	}
 
 	int inDegree(int theVertex) const{
-		checkVertex(theVertex);
+		if (checkVertex(theVertex))
+			return 0;
 
 		int sum = 0;
 		for (int j = 1; j <= n; j++)
@@ -209,8 +216,7 @@ public:
 
 		int next(T& theWeight){
 			for (int j = currentVertex; j <= n; j++)
-				if (row[j] != noEdge)
-				{
+				if (row[j] != noEdge){
 					currentVertex = j + 1;
 					theWeight = row[j];
 					return j;
@@ -305,12 +311,12 @@ public:
 	void insertEdge(weightedEdge<T> *theEdge) {
 		int v1 = theEdge->vertex1();
 		int v2 = theEdge->vertex2();
-		if (v1 < 1 || v2 < 1 || v1 > n || v2 > n || v1 == v2)
-		{
+		if (v1 < 1 || v2 < 1 || v1 > n || v2 > n || v1 == v2){
 			ostringstream s;
 			s << "(" << v1 << "," << v2
 				<< ") is not a permissible edge";
 			cout << "插入的边不正确！" << s.str();
+			return;
 		}
 
 		if (a[v1] == NULL) {
@@ -325,9 +331,9 @@ public:
 	}
 
 	void eraseEdge(int i, int j) {
-		if (i >= 1 && j >= 1 && i <= n && j <= n)
-		{
+		if (i >= 1 && j >= 1 && i <= n && j <= n){
 			weightedEdge<T> *cur = a[i], *pre=a[i];
+
 			if (a[i]->vertex2() == j) {
 				weightedEdge<T> *temp = a[i];
 				a[i] = a[i]->next;
@@ -342,7 +348,7 @@ public:
 						e--;
 						break;
 					}
-					cur = pre;
+					pre = cur;
 					cur = cur->next;
 				}
 			}

@@ -114,7 +114,9 @@ template<class K, class E>
 void binarySearchTree<K, E>::insert(const pair<K, E>& thePair)
 { 
 	/*********************************************
-	二叉查找树的插入
+	二叉查找树的插入:注意二叉查找树的插入不会改变
+	原有的二叉查找树上的节点，只会在尾部插入新节点；
+	所以很容易导致不平衡
 	**********************************************/
 	binaryTreenode<pair<K, E> > *p = root, *pp = NULL;
 	while (p != NULL)
