@@ -30,6 +30,9 @@
     <ClCompile Include="my_heap.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="binaryTree.h">
+      <Filter>头文件</Filter>
+    </ClCompile>
     <ClCompile Include="binaryTree.cpp">
       <Filter>源文件</Filter>
     </ClCompile>

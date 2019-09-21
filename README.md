@@ -2,28 +2,33 @@
 
 ###  1. Learning_cpp
 对C++各种特性的测试
-- queue：empty()成员函数
-- vector：各种初始化方式的区别；
-- 关联容器：map
-- C++中algorithm库中自带的算法：sort()
-- 重写了一遍C++ primer第11.3.6小节中出现的单词置换程序，用到了文件输入输出流、字符流、字典
-- 字符串操作：全面熟悉了C++中string、char*这两种字符串的各种操作；增加了与字符串操作相关的两个笔试题
-- thread多线程类：
+- container.cpp : 顺序容器、关联容器
+	- map: 遍历，删除，排序
+	- vector：各种初始化方式的区别
+	- queue：empty函数
+- test_algorithm.cpp ：C++中algorithm库中自带的算法
+	- 排序算法sort()
+	- C++ primer第11.3.6小节中出现的单词置换程序，用到了文件输入输出流、字符流、字典
+- character.cpp : 字符串操作
+	- C++中的字符容器string;
+	- C风格的字符串；
+	- C风格字符串的库函数；
+	- 字符串相关的笔试题；
+- my_thread.cpp : thread多线程类的操作
 	- thread的常用操作；
 	- 利用mutex对线程进行加锁；
 	- 多线程笔试题：多个线程按顺序打印字母，比如ABCABCABC
 	- 锁管理类：unique_lock，lock_guard; 设置条件协调线程运行的条件变量类：condition_variable;
 	- 锁的概念：C++中锁有一个作用域，作用域内所有的资源都会被锁定，只能被一个线程使用。这些资源可以是变量、输入输出流;
-- 面向对象的特性：
+- oop.cpp : 面向对象的特性：
 	- 基类的成员访问权限，派生类的继承权限；
 	- 类的内存分配，成员内存对齐规则；
 	- 类的构造函数，静态函数；
-- 强制类型转换：static_cast、dynamic_cast、reinterpret_cast、const_cast【较难】
-- 自定义异常和异常处理；
-- 设计模式：
-    - [x] 单例模式：饿汉方式和懒汉方式；
-	- [x] 简单工厂模式；
-	- [x] 工厂模式；
+	- 自定义异常和异常处理；
+	- 设计模式：
+		-[x] 单例模式：饿汉方式和懒汉方式；
+		-[x] 简单工厂模式；
+		-[x] 工厂模式；
 	
 ###  2. DataStructure
 常见数据结构的实现

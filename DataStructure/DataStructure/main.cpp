@@ -1,9 +1,11 @@
 #include "forward_list.h"
 #include "stack.h"
 #include "linkedBinaryTree.h"
+#include "binaryTree.cpp"
 #include "hash.h"
 #include "graph.h"
 #include "my_heap.h"
+
 
 using namespace std;
 
@@ -16,9 +18,11 @@ int main() {
 	
 	cout << "***************²âÊÔ¶þ²æÊ÷µÄ´úÂë******************" << endl;
 	test_linkedBinaryTree();
+	
 
 	cout << "****************²âÊÔ¶þ²æËÑË÷Ê÷*******************" << endl;
 	test_binarySearchTree();
+	test_binaryTree();
 
 	cout << "*****************²âÊÔ¹þÏ£Ëã·¨********************" << endl;
 	test_hash();
