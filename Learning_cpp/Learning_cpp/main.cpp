@@ -72,6 +72,7 @@ int main() {
 	test_class_Singleton();
 	test_class_SimpleFactory();
 	test_class_Factory();
+	test_class_AbstractFactory();
 
 	cout << "***********************强制类型转换********************" << endl;
 	int x0 = 65;

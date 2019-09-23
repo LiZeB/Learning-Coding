@@ -59,3 +59,9 @@ void test_class_Factory() {
 	m1->write();
 	m2->write();
 }
+
+void test_class_AbstractFactory() {
+	factory *f = new Android_factory();
+	OperationControler *operation = f->createOperationControler();
+	InterfaceControler *interface = f->createInterfaceControler();
+}

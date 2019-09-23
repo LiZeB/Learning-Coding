@@ -58,7 +58,7 @@ private:
 	static E *instance;
 };
 
-E* E::instance = new E();
+E* E::instance;
 
 /********单例模式中的懒汉实现方法*************/
 mutex m2;
@@ -176,7 +176,7 @@ public:
 class Loader {
 public:
 	Loader() {}
-	virtual Image* read() { cout << "Reading a Image" << endl; return (Image*)(NULL); }
+	virtual Image* read() = 0;
 };
 
 class Jpg_Loader :public Loader {
@@ -189,6 +189,99 @@ class Gif_Loader :public Loader {
 public:
 	Gif_Loader(){}
 	Image* read() { cout << "Reading a Gif Image" << endl; Gif_image *result = new Gif_image(); return result; }
+};
+
+/****************抽象工厂模式**********************/
+/**
+Sunny软件公司欲推出一款新的手机游戏软件，该软件能够支持Symbian、Android和Windows Mobile等多个智能手机操作系统平台，
+针对不同的手机操作系统，该游戏软件提供了不同的游戏操作控制(OperationController)类和游戏界面控制(InterfaceController)类，
+并提供相应的工厂类来封装这些类的初始化过程。软件要求具有较好的扩展性以支持新的操作系统平台，
+为了满足上述需求，试采用抽象工厂模式对其进行设计。
+**/
+class OperationControler {
+public:
+	OperationControler() { cout << "This is a OperationControler base class!" << endl; }
+};
+
+class Symbian_OperationControler :public OperationControler {
+public:
+	Symbian_OperationControler() { cout << "This is a Symbian_OperationControler class!" << endl; }
+};
+
+class Android_OperationControler :public OperationControler {
+public:
+	Android_OperationControler() { cout << "This is a Android_OperationControler class!" << endl; }
+};
+
+class WindowsMobile_OperationControler :public OperationControler {
+public:
+	WindowsMobile_OperationControler() { cout << "This is a WindowsMobile_OperationControler class!" << endl; }
+};
+
+class InterfaceControler {
+public:
+	InterfaceControler() { cout << "This is a InterfaceControler base class!" << endl; }
+};
+
+class Symbian_InterfaceControler :public InterfaceControler {
+public:
+	Symbian_InterfaceControler() { cout << "This is a Symbian_InterfaceControler class!" << endl; }
+};
+
+class Android_InterfaceControler :public InterfaceControler {
+public:
+	Android_InterfaceControler() { cout << "This is a Android_InterfaceControler class!" << endl; }
+};
+
+class WindowsMobile_InterfaceControler :public InterfaceControler {
+public:
+	WindowsMobile_InterfaceControler() { cout << "This is a WindowsMobile_InterfaceControler class!" << endl; }
+};
+
+class factory {
+public:
+	factory() { cout << "This is factory base class!" << endl; }
+	virtual OperationControler* createOperationControler() = 0;
+	virtual InterfaceControler* createInterfaceControler() = 0;
+};
+
+class Symbian_factory :public factory {
+public:
+	Symbian_factory() { cout << "This is Symbian Factory class!" << endl; }
+	OperationControler* createOperationControler() { 
+		cout << "creating a Symbian OperationControler" << endl; 
+		return new Symbian_OperationControler();
+	}
+	InterfaceControler* createInterfaceControler() { 
+		cout << "creating a Symbian OperationControler" << endl; 
+		return new Symbian_InterfaceControler();
+	}
+};
+
+class Android_factory :public factory {
+public:
+	Android_factory() { cout << "This is Android Factory class!" << endl; }
+	OperationControler* createOperationControler() { 
+		cout << "creating a Android OperationControler" << endl; 
+		return new Android_OperationControler();
+	}
+	InterfaceControler* createInterfaceControler() { 
+		cout << "creating a Android OperationControler" << endl; 
+		return new Android_InterfaceControler();
+	}
+};
+
+class WindowsMobile_factory :public factory {
+public:
+	WindowsMobile_factory() { cout << "This is WindowsMobile Factory class!" << endl; }
+	OperationControler* createOperationControler() { 
+		cout << "creating a WindowsMobile OperationControler" << endl;
+		return new WindowsMobile_OperationControler();
+	}
+	InterfaceControler* createInterfaceControler() { 
+		cout << "creating a WindowsMobile OperationControler" << endl; 
+		return new WindowsMobile_InterfaceControler();
+	}
 };
 
 
