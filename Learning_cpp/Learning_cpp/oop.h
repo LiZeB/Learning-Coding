@@ -13,15 +13,18 @@ public:
 	virtual void func() { cout << "This is A object!" << endl; }
 	
 	void test() { func(); }
+	void func2() { cout << "Using func2" << endl; func3(); }
 protected:
 	int _a1;
-	void func2() { cout << "Using func2" << endl; }
+private:
+	virtual void func3() { cout << "Using func3 in A Class" << endl; }
 };
 
 class B : public A {
 public:
 	B() { cout << "Constructing a B Object!"<<endl; }
 	void func() { cout << "This is B Object!" << endl; cout << _a1 << endl; }
+	void func3() { cout << "Using func3 in B Class" << endl; }
 public:
 	int _b1 = _a1;
 };
@@ -33,7 +36,7 @@ public:
 	int a;
 	char e;
 	float b;
-	C();
+	C() :c(5) {};
 	~C();
 };
 

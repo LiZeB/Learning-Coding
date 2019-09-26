@@ -108,5 +108,6 @@ java学习
 Linux下Socket编程
 
 ### 6.MySQL
-- 用C++连接本地MySQL数据库，并做一些简单地查询操作；
-- 从select查询结果生成新表；
+SQL语句练习，数据库的增删改查
+- utility.h: 定义了数据库的管理类
+- utility.cpp: 数据库管理类的实现
