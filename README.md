@@ -64,7 +64,7 @@
 - 最短路径搜索：
 	- (1)Dijkstra算法
 - recursion.h : 常见的递归算法问题
-	- [] 质数分解；
+	- [ ] 质数分解；
     
 ### 4. Java Code
 java学习
