@@ -219,3 +219,35 @@ void quickSort(vector<T> &v1) {
 	int N = v1.size();
 	quickSort(v1, 0, N - 1);
 }
+
+void test_sort() {
+	cout << "≤‚ ‘≤Â»Î≈≈–Ú£∫" << endl;
+	vector<int> v1{ 6,2,4,5,1,2,3,0,7,4,5,9,10, -90, 100};
+	insertSort(v1);
+	vector<vector<int>> v3{ v1 };  //≤‚ ‘‘ÀÀ„∑˚÷ÿ‘ÿ
+	cout << v3 << endl;
+
+
+	cout << "≤‚ ‘œ£∂˚≈≈–Ú:" << endl;
+	vector<int> v2{ 6,2,4,5,1,2,3,0,7,4,5,9,10 };
+	cout << "‘≠–Ú¡–£∫" << v2 << endl;
+	shellSort(v2);
+	cout << v2 << endl;
+
+	cout << "≤‚ ‘√∞≈›≈≈–Ú:" << endl;
+	vector<double> v8{ 6,2,4,5,1,2,3,0,7,4,5,9,10,34,25,-90.0, 100.0 };
+	bubbleSort(v8);
+	cout << v8 << endl;
+
+	cout << "≤‚ ‘πÈ≤¢≈≈–Ú:" << endl;
+	vector<double> v4{1,3,4,40,56,89,-100,5,6,7,8,1000};
+	mergeSort(v4);
+	cout << v4 << endl;
+
+	cout << "≤‚ ‘øÏÀŸ≈≈–Ú:" << endl;
+	vector<double> v5{ 1,2,3,3,2,-90,-90,6,2,4,5,1,2,3,0,7,4,5,9,10,34,25,-90.0, 100.0,1,3,4,40,56,89,-100,5,6,7,8,100 };
+	vector<double> v6{ 9,8,7,6,5,4,3,2,1,0 };
+	vector<double> v7{ 2 };
+	quickSort(v5);
+	cout << v5 << endl;
+}

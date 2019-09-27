@@ -21,3 +21,5 @@ void mergeSort(vector<T> &);
 
 template<class T>
 void quickSort(vector<T> &);
+
+void test_sort();

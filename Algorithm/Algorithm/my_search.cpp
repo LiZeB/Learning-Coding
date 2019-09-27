@@ -41,3 +41,13 @@ int halfSearch(vector<T> &v1, const T &val) {
 
 	return result_index;
 }
+
+void test_search() {
+	vector<int>  v3 = { 1,6,5,4,7,9,23,12,23,34,0 };
+	double value = 0;
+	int index = halfSearch<int>(v3, value);
+	cout << index << endl;
+	if (index != -1) {
+		cout << v3[index] << endl;
+	}
+}

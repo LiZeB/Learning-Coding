@@ -123,16 +123,21 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="my_search.cpp" />
     <ClCompile Include="my_sort.cpp" />
+    <ClCompile Include="recursion.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dictOrder.h" />
     <ClInclude Include="graph.h" />
     <ClInclude Include="my_sort.h" />
     <ClInclude Include="my_search.h" />
+    <ClInclude Include="recursion.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="out.txt" />
     <Text Include="result.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -27,6 +27,9 @@
     <ClCompile Include="graph.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="recursion.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dictOrder.h">
@@ -41,6 +44,9 @@
     <ClInclude Include="graph.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="recursion.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="out.txt">
@@ -49,5 +55,10 @@
     <Text Include="result.txt">
       <Filter>资源文件</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>
