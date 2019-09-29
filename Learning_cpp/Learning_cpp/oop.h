@@ -4,8 +4,16 @@
 #include <exception>
 #include <string>
 
-
 using namespace std;
+
+void test_class_inherited();
+void test_class_memory();
+void test_class_construction();
+void create_class();
+void test_class_Singleton();
+void test_class_SimpleFactory();
+void test_class_Factory();
+void test_class_AbstractFactory();
 
 class A {
 public:

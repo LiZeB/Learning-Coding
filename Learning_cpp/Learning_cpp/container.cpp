@@ -1,14 +1,4 @@
 #include "container.h"
-template<class T>
-struct map_sort{
-	bool  operator ()(T p1, T p2) {
-		/******************************
-		排序的比较函数
-		*******************************/
-		return p1 >= p2;
-
-	}
-};
 
 map<string, string> get_map(ifstream &map_file) {
 	/********************************************
@@ -104,8 +94,7 @@ void test_vector() {
 
 }
 
-template<class T>
-void test_queue(queue<T> &q, T val) {
+void test_queue(queue<int> q, int val) {
 	/*********************************
 	测试了队列的empty操作；
 	**********************************/

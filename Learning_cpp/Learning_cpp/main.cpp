@@ -1,9 +1,11 @@
 #include "characters.h"
-#include "container.cpp"
-#include "test_algorithm.cpp"
-#include "my_thread.cpp"
-#include "oop.cpp"
+#include "container.h"
+#include "test_algorithm.h"
+#include "my_thread.h"
+#include "oop.h"
 #include <typeinfo>
+
+void type_cast();
 
 int main() {
 	cout << "***********各个基本内置类型的字节数*****************" << endl;
@@ -23,29 +25,27 @@ int main() {
 	cout << "sizeof(float *):" << sizeof(float *) << endl;
 
 
-	int a1[] = { 0, 1, 2, 3, 4, 5 };
+	int a1[] = { 0, 1, 2, 3, 4, 5};
 	char *a2 = "012345";
 	cout << "sizeof(a1):" << sizeof(a1) << endl;
 	cout << "sizeof(*a1):" << sizeof(*a1) << endl;
 	cout << "sizeof(*a2):" << sizeof(*a2) << endl;
 	cout << "sizeof(a2):" << sizeof(a2) << endl;
 
-	cout << "********************vector***************************" << endl;
+	cout << "********************容器*****************************" << endl;
 	cout << "测试vector" << endl;
 	test_vector();
-
-	cout << "*************队列************************************" << endl;
-	queue<vector<int>> q1;
-	test_queue(q1, vector<int>(20));
-	
-	cout << "*******************map字典***************************" << endl;
+	cout << "测试queue" << endl;
+	queue<int> q1;
+	test_queue(q1, 20);
+	cout << "测试map" << endl;
 	test_map();
 	
 	cout << "*************algorithm算法库中的sort******************" << endl;
 	cout << "测试sort函数" << endl;
 	test_sort();
 
-	cout << "*************测试常量引用*****************************" << endl;
+	cout << "*************常量引用*****************************" << endl;
 	int b = 10;
 	const int &a = b;
 	const int &c = a;
@@ -53,7 +53,6 @@ int main() {
 
 	cout << "*************************string************************" << endl;
 	test_string1();
-
 	test_str_functions();
 
 	cout << "********************关联容器、文件流、字符流***********" << endl;
@@ -75,12 +74,21 @@ int main() {
 	test_class_AbstractFactory();
 
 	cout << "***********************强制类型转换********************" << endl;
-	int x0 = 65;
-	float x1 = static_cast<float>(x0);
-	char x2 = static_cast<char>(x0);
-	cout << typeid(x1).name()<<" "<<x1<< endl;
-	cout << typeid(x2).name()<<" "<<x2<< endl;
+	type_cast();
 
 	getchar();
 	return 0;
+}
+
+void type_cast() {
+	int x0 = 65;
+	float x1 = static_cast<float>(x0);
+	char x2 = static_cast<char>(x0);
+	cout << typeid(x1).name() << " " << x1 << endl;
+	cout << typeid(x2).name() << " " << x2 << endl;
+
+	const int &x3 = 10;
+	int &x4 = const_cast<int&>(x3);
+	x4 = 11;
+	cout << x3 << " " << x4 << endl;
 }
