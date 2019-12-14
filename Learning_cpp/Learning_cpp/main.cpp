@@ -2,7 +2,6 @@
 #include "container.h"
 #include "test_algorithm.h"
 #include "my_thread.h"
-#include "oop.h"
 #include <typeinfo>
 
 void type_cast();
@@ -63,15 +62,6 @@ int main() {
 	cout << "***********************thread 线程类*******************" << endl;
 	test_thread2();
 	cout << endl;
-
-	cout << "***********************面向对象属性********************" << endl;
-	test_class_inherited();
-	test_class_memory();
-	test_class_construction();
-	test_class_Singleton();
-	test_class_SimpleFactory();
-	test_class_Factory();
-	test_class_AbstractFactory();
 
 	cout << "***********************强制类型转换********************" << endl;
 	type_cast();

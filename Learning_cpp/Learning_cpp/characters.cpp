@@ -32,9 +32,9 @@ void test_string1() {
 	cout << "s9  " << sizeof(s9) << endl;
 	cout << "*s9+1 " << sizeof(*(s9 + 1)) << endl;
 		
-	char s7[5];   //一定要注意是'\0'，不是'/0'，这一个小错误很难找
-	s7[0] = 'a', s7[1] = 'b', s7[2] = '\0', s7[3] = 8, s7[4]='\0';
-	cout << " " << strlen(s7) << endl;
+	char s7[5] = {'a', 'b', 'c', 'd', '\0'};   //一定要注意是'\0'，不是'/0'，这一个小错误很难找
+	//s7[0] = 'a', s7[1] = 'b', s7[2] = '\0', s7[3] = 8, s7[4]='\0';
+	cout << "s7: " << strlen(s7) <<" "<< sizeof(s7) << endl;
 	char *s8 = new char[10];
 	s8[0] = 'a', s8[1] = 'b', s8[2] = 'c', s8[3] = 'd', s8[4] = '\0';
 	cout <<" "<< strlen(s8) << endl;

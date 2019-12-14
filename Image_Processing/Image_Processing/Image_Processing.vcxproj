@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A86D0C8D-EF75-4E2A-99A4-3C3354945E75}</ProjectGuid>
-    <RootNamespace>Learning_cpp</RootNamespace>
+    <ProjectGuid>{EDE1CADF-D3B6-4FE7-913F-E570F18FCF84}</ProjectGuid>
+    <RootNamespace>Image_Processing</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -41,7 +41,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -84,12 +84,9 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Console</SubSystem>
-      <AdditionalOptions>/FORCE:MULTIPLE %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -121,26 +118,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="characters.cpp" />
-    <ClCompile Include="container.cpp" />
+    <ClCompile Include="IPM.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="my_thread.cpp" />
-    <ClCompile Include="test_algorithm.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="characters.h" />
-    <ClInclude Include="container.h" />
-    <ClInclude Include="my_thread.h" />
-    <ClInclude Include="test_algorithm.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="input_file.txt" />
-    <Text Include="map_file.txt" />
-    <Text Include="result.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\README.md" />
-    <None Include="..\README.md" />
+    <ClInclude Include="IPM.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
