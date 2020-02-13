@@ -1,8 +1,8 @@
-#include "oop.h"
+#include "singleton.h"
 
 class A {
 public:
-	A(int a1 = 10) :_a1(a1) { cout << "Constructing a A Object!" << _a1 << endl; }
+	A(int a1 = 10):_a1(a1) { cout << "Constructing a A Object!" << _a1 << endl; }
 	virtual void func() { cout << "This is A object!" << endl; }
 	void test() { func(); }
 	void func2() { cout << "Using func2" << endl; func3(); }
@@ -72,8 +72,8 @@ public:
 
 	static F* getInstance() {
 		if (instance == NULL) {
-			/*unique_lock<mutex> my_lock(m2);
-			if (instance == NULL)*/
+			unique_lock<mutex> my_lock(m2);
+			if (instance == NULL)
 				instance = new F();
 		}
 		return instance;

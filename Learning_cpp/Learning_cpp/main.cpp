@@ -3,6 +3,7 @@
 #include "test_algorithm.h"
 #include "my_thread.h"
 #include <typeinfo>
+#include <limits>
 
 void type_cast();
 
@@ -22,6 +23,7 @@ int main() {
 	cout << "sizeof(char *):"<<sizeof(char *) << endl;
 	cout << "sizeof(float):" << sizeof(float) << endl;
 	cout << "sizeof(float *):" << sizeof(float *) << endl;
+	cout << "INT_MAX=" << INT_MAX << endl;
 
 
 	int a1[] = { 0, 1, 2, 3, 4, 5};

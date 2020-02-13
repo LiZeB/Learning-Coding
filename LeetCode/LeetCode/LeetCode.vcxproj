@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{2C201EE4-458F-4614-A562-A2BAFE3D6810}</ProjectGuid>
-    <RootNamespace>DesignPattern</RootNamespace>
+    <ProjectGuid>{2AD03561-7C8B-4BAC-B2FA-13895C74809E}</ProjectGuid>
+    <RootNamespace>LeetCode</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -118,14 +118,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="singleton.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="singleton.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\README.md" />
+    <ClCompile Include="15.cpp" />
+    <ClCompile Include="16.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
