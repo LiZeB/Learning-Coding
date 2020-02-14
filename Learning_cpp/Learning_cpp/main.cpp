@@ -26,6 +26,7 @@ int main() {
 	cout << "INT_MAX=" << INT_MAX << endl;
 
 
+	cout << "***********×Ö·ûÊı×éºÍchar*×Ö·û´®*****************" << endl;
 	int a1[] = { 0, 1, 2, 3, 4, 5};
 	char *a2 = "012345";
 	cout << "sizeof(a1):" << sizeof(a1) << endl;
