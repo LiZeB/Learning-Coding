@@ -118,8 +118,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="143.cpp" />
     <ClCompile Include="15.cpp" />
     <ClCompile Include="16.cpp" />
+    <ClCompile Include="160.cpp" />
+    <ClCompile Include="18.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
