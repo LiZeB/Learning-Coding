@@ -15,19 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="15.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="16.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="18.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="143.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="160.cpp">
+    <ClCompile Include="mian.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
