@@ -18,5 +18,14 @@
     <ClCompile Include="mian.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="58.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="104.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="105.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
